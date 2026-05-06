@@ -55,21 +55,44 @@ def _make_envelope(n_samples: int, spec: dict, rng: np.random.Generator) -> np.n
         return env.astype(np.float32)
 
     if etype == "random_walk":
-        # Smooth random walk in dB space
+        # Smooth random walk in dB space.
+        # smooth_sec controls how slowly the level drifts:
+        #   0.05 s => jittery frame-to-frame variation
+        #   0.5 s  => moderate drift (default)
+        #   2.0 s  => very slow swell
         step_db = spec.get("step_db", 1.0)
         low_db = spec.get("low_db", -12.0)
         high_db = spec.get("high_db", 0.0)
+        smooth_sec = spec.get("smooth_sec", 0.5)
         walk = np.zeros(n_samples)
         db = 0.0
         for i in range(n_samples):
             db += rng.normal(0, step_db)
             db = float(np.clip(db, low_db, high_db))
             walk[i] = db
-        # smooth with a simple running average
         from scipy.ndimage import uniform_filter1d
-        smooth_samples = max(1, int(spec.get("_sr", 16000) * 0.1))
+        sr = spec.get("_sr", 16000)
+        smooth_samples = max(1, int(sr * smooth_sec))
         walk = uniform_filter1d(walk, size=smooth_samples)
         return (10 ** (walk / 20)).astype(np.float32)
+
+    if etype == "burst":
+        # A sudden loud event: Gaussian-shaped amplitude spike at a random time.
+        # burst_db    : peak amplitude of the burst relative to baseline (dB, positive)
+        # burst_sec   : half-width of the Gaussian in seconds (controls sharpness)
+        # burst_at_sec: centre of the burst; if None, drawn randomly
+        sr = spec.get("_sr", 16000)
+        burst_db = spec.get("burst_db", 12.0)
+        burst_sec = spec.get("burst_sec", 0.15)   # 150 ms half-width by default
+        if spec.get("burst_at_sec") is not None:
+            centre = int(spec["burst_at_sec"] * sr)
+        else:
+            centre = int(rng.uniform(0.1, 0.9) * n_samples)
+        sigma = max(1, int(burst_sec * sr))
+        t = np.arange(n_samples)
+        burst_amp = 10 ** (burst_db / 20)
+        env = 1.0 + (burst_amp - 1.0) * np.exp(-0.5 * ((t - centre) / sigma) ** 2)
+        return env.astype(np.float32)
 
     raise ValueError(f"Unknown envelope type: {etype!r}")
 
@@ -104,17 +127,41 @@ def _loop_to_length(audio: np.ndarray, n: int) -> np.ndarray:
 # Scenario recipe building
 # ---------------------------------------------------------------------------
 
-# Scenario type weights: (name, speech_gain_db, noise_gain_db, envelope_spec)
+# Each entry:
+#   (type_name, speech_gain_db, speech_envelope_type,
+#    noise_gain_db, noise_envelope_type)
+#
+# speech_envelope_type controls how the speaker's own level varies during the clip:
+#   "constant"     — fixed level throughout
+#   "linear"       — speaker walks closer/farther (monotonic ramp)
+#   "random_walk"  — natural mic-distance variation (slow smooth walk)
+#
+# noise_envelope_type controls background level variation:
+#   "constant"     — steady background
+#   "linear"       — noise level rises or falls across the clip
+#   "slow_sine"    — cyclic noise swell (e.g. traffic, AC hum)
+#   "random_walk"  — stochastic drift (e.g. crowd, wind)
+#   "burst"        — sudden impulse event (clatter, door slam)
 _SCENARIO_TYPES = [
-    # name                  speech_db  noise_db  noise_envelope_type
-    ("speech_only",         -6.0,     -60.0,    "constant"),
-    ("speech_const_noise",  -6.0,     -24.0,    "constant"),
-    ("speech_const_noise",  -9.0,     -20.0,    "constant"),
-    ("quiet_speech_noise",  -18.0,    -20.0,    "constant"),
-    ("speech_rising_noise", -6.0,     -30.0,    "linear"),
-    ("speech_sine_noise",   -6.0,     -22.0,    "slow_sine"),
-    ("short_cmd_noise",     -6.0,     -20.0,    "constant"),
-    ("speech_rand_noise",   -8.0,     -22.0,    "random_walk"),
+    # name                       sp_db  sp_env          ns_db   ns_env
+    ("speech_only",              -6.0,  "constant",    -60.0,  "constant"),
+    ("speech_const_noise",       -6.0,  "constant",    -24.0,  "constant"),
+    ("speech_const_noise",       -9.0,  "constant",    -20.0,  "constant"),
+    ("quiet_speech_noise",      -18.0,  "constant",    -20.0,  "constant"),
+    ("speech_rising_noise",      -6.0,  "constant",    -30.0,  "linear"),
+    ("speech_sine_noise",        -6.0,  "constant",    -22.0,  "slow_sine"),
+    ("short_cmd_noise",          -6.0,  "constant",    -20.0,  "constant"),
+    ("speech_rand_noise",        -8.0,  "constant",    -22.0,  "random_walk"),
+    # Speaker level variation
+    ("fading_speaker",           -6.0,  "linear",      -24.0,  "constant"),
+    ("approaching_speaker",      -6.0,  "linear",      -24.0,  "constant"),
+    ("natural_level_variation",  -8.0,  "random_walk", -22.0,  "constant"),
+    ("fading_speaker_rand_noise",-6.0,  "linear",      -22.0,  "random_walk"),
+    # Hard burst events
+    ("speech_burst_noise",       -6.0,  "constant",    -26.0,  "burst"),
+    ("quiet_speech_burst",      -16.0,  "constant",    -26.0,  "burst"),
+    # Combined: fading speech into rising noise
+    ("fade_speech_rise_noise",   -6.0,  "linear",      -30.0,  "linear"),
 ]
 
 
@@ -162,7 +209,7 @@ def build_recipes(
         rng = np.random.default_rng(scenario_seed)
 
         stype = _SCENARIO_TYPES[i % len(_SCENARIO_TYPES)]
-        type_name, speech_db, noise_db, noise_env_type = stype
+        type_name, speech_db, speech_env_type, noise_db, noise_env_type = stype
 
         speech_entry = speech_files[i % len(speech_files)]
         noise_entry = noise_files[i % len(noise_files)]
@@ -180,6 +227,23 @@ def build_recipes(
         noise_dur = noise_entry.get("duration_sec") or 5.0
         noise_offset = float(rng.uniform(0.0, max(0.0, noise_dur - 1.0)))
 
+        # --- Speech envelope ---
+        speech_envelope: dict = {"type": speech_env_type}
+        if speech_env_type == "linear":
+            # Randomise direction: fading away or approaching
+            if type_name == "approaching_speaker" or rng.random() > 0.5:
+                speech_envelope["start_db"] = float(rng.uniform(-12, -6))
+                speech_envelope["end_db"] = float(rng.uniform(-3, 0))
+            else:  # fading
+                speech_envelope["start_db"] = float(rng.uniform(-3, 0))
+                speech_envelope["end_db"] = float(rng.uniform(-14, -8))
+        elif speech_env_type == "random_walk":
+            speech_envelope["step_db"] = 0.4
+            speech_envelope["low_db"] = -8.0
+            speech_envelope["high_db"] = 3.0
+            speech_envelope["smooth_sec"] = float(rng.uniform(0.3, 1.2))
+
+        # --- Noise envelope ---
         noise_envelope: dict = {"type": noise_env_type}
         if noise_env_type == "linear":
             noise_envelope["start_db"] = float(rng.uniform(-6, 0))
@@ -191,6 +255,10 @@ def build_recipes(
             noise_envelope["step_db"] = 0.5
             noise_envelope["low_db"] = -8.0
             noise_envelope["high_db"] = 4.0
+            noise_envelope["smooth_sec"] = float(rng.uniform(0.2, 1.5))
+        elif noise_env_type == "burst":
+            noise_envelope["burst_db"] = float(rng.uniform(8, 18))
+            noise_envelope["burst_sec"] = float(rng.uniform(0.05, 0.3))   # 50–300 ms half-width
 
         truth_start = round(insert_at + seg[0] - seg[0], 4)  # = insert_at + 0 offset within clip
         # truth relative to mixed-audio timeline: insert_at marks where seg[0] lands
@@ -213,7 +281,7 @@ def build_recipes(
                 "source_segment": seg,       # [start, end] in source file
                 "insert_at_sec": insert_at,
                 "gain_db": speech_db,
-                "gain_envelope": {"type": "constant"},
+                "gain_envelope": speech_envelope,
             },
             "noise": {
                 "source_id": noise_entry["source_id"],
