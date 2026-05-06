@@ -1,0 +1,3792 @@
+{
+  "seed": 42,
+  "scenario_count": 30,
+  "grid": {
+    "open_margin_db": [
+      8.0,
+      10.0,
+      12.0,
+      15.0
+    ],
+    "close_margin_db": [
+      3.0,
+      5.0,
+      7.0
+    ],
+    "peak_open_margin_db": [
+      12.0,
+      16.0,
+      20.0
+    ],
+    "release_ms": [
+      200.0,
+      400.0,
+      700.0
+    ],
+    "hold_ms": [
+      100.0,
+      200.0
+    ]
+  },
+  "best": [
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.2121,
+      "mean_false_open": 1.8735,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 170.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.2121,
+      "mean_false_open": 1.8735,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 170.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.2121,
+      "mean_false_open": 1.8735,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 170.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.2121,
+      "mean_false_open": 1.8735,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 170.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.2358,
+      "mean_false_open": 1.8358,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 193.5,
+      "total_scenarios": 30
+    }
+  ],
+  "all": [
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.2121,
+      "mean_false_open": 1.8735,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 170.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.2121,
+      "mean_false_open": 1.8735,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 170.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.2121,
+      "mean_false_open": 1.8735,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 170.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.2121,
+      "mean_false_open": 1.8735,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 170.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.2358,
+      "mean_false_open": 1.8358,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 193.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.2358,
+      "mean_false_open": 1.8358,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 193.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.2358,
+      "mean_false_open": 1.8358,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 193.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.2358,
+      "mean_false_open": 1.8358,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 193.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.4672,
+      "mean_false_open": 1.1818,
+      "mean_start_delay_ms": 245.92,
+      "mean_early_close_ms": 385.03,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.5,
+      "passed": 15,
+      "failed": 15,
+      "mean_missed_speech": 0.4672,
+      "mean_false_open": 1.1818,
+      "mean_start_delay_ms": 245.92,
+      "mean_early_close_ms": 385.03,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1488,
+      "mean_false_open": 2.2941,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 310.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1488,
+      "mean_false_open": 2.2941,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 310.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1488,
+      "mean_false_open": 2.2941,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 310.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1488,
+      "mean_false_open": 2.2941,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 310.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1488,
+      "mean_false_open": 2.2941,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 310.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1488,
+      "mean_false_open": 2.2941,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 310.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1488,
+      "mean_false_open": 2.2941,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 310.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1488,
+      "mean_false_open": 2.2941,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 310.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1802,
+      "mean_false_open": 2.1829,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 468.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1802,
+      "mean_false_open": 2.1829,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 468.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1802,
+      "mean_false_open": 2.1696,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 468.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1802,
+      "mean_false_open": 2.1696,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 468.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1802,
+      "mean_false_open": 2.1696,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 468.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1802,
+      "mean_false_open": 2.1696,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 468.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1802,
+      "mean_false_open": 2.1696,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 468.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.1802,
+      "mean_false_open": 2.1696,
+      "mean_start_delay_ms": 182.13,
+      "mean_early_close_ms": 468.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.2892,
+      "mean_false_open": 1.5225,
+      "mean_start_delay_ms": 248.7,
+      "mean_early_close_ms": 359.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.2892,
+      "mean_false_open": 1.5225,
+      "mean_start_delay_ms": 248.7,
+      "mean_early_close_ms": 359.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.2892,
+      "mean_false_open": 1.5225,
+      "mean_start_delay_ms": 248.7,
+      "mean_early_close_ms": 359.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.2892,
+      "mean_false_open": 1.5225,
+      "mean_start_delay_ms": 248.7,
+      "mean_early_close_ms": 359.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.306,
+      "mean_false_open": 1.7627,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 279.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.306,
+      "mean_false_open": 1.7627,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 279.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.306,
+      "mean_false_open": 1.7627,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 279.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.306,
+      "mean_false_open": 1.7627,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 279.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3263,
+      "mean_false_open": 1.4043,
+      "mean_start_delay_ms": 248.7,
+      "mean_early_close_ms": 405.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3263,
+      "mean_false_open": 1.4043,
+      "mean_start_delay_ms": 248.7,
+      "mean_early_close_ms": 405.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3263,
+      "mean_false_open": 1.4043,
+      "mean_start_delay_ms": 248.7,
+      "mean_early_close_ms": 405.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3263,
+      "mean_false_open": 1.4043,
+      "mean_start_delay_ms": 248.7,
+      "mean_early_close_ms": 405.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3442,
+      "mean_false_open": 1.4749,
+      "mean_start_delay_ms": 245.41,
+      "mean_early_close_ms": 474.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3442,
+      "mean_false_open": 1.4749,
+      "mean_start_delay_ms": 245.41,
+      "mean_early_close_ms": 474.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3442,
+      "mean_false_open": 1.4429,
+      "mean_start_delay_ms": 245.41,
+      "mean_early_close_ms": 474.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3442,
+      "mean_false_open": 1.4429,
+      "mean_start_delay_ms": 245.41,
+      "mean_early_close_ms": 474.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3448,
+      "mean_false_open": 1.3608,
+      "mean_start_delay_ms": 246.03,
+      "mean_early_close_ms": 474.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3448,
+      "mean_false_open": 1.3608,
+      "mean_start_delay_ms": 246.03,
+      "mean_early_close_ms": 474.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3448,
+      "mean_false_open": 1.3608,
+      "mean_start_delay_ms": 246.03,
+      "mean_early_close_ms": 474.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3448,
+      "mean_false_open": 1.3608,
+      "mean_start_delay_ms": 246.03,
+      "mean_early_close_ms": 474.46,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3631,
+      "mean_false_open": 1.5031,
+      "mean_start_delay_ms": 22.73,
+      "mean_early_close_ms": 122.4,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3631,
+      "mean_false_open": 1.5031,
+      "mean_start_delay_ms": 22.73,
+      "mean_early_close_ms": 122.4,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3707,
+      "mean_false_open": 1.4314,
+      "mean_start_delay_ms": 22.73,
+      "mean_early_close_ms": 129.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.3707,
+      "mean_false_open": 1.4314,
+      "mean_start_delay_ms": 22.73,
+      "mean_early_close_ms": 129.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.4208,
+      "mean_false_open": 1.0895,
+      "mean_start_delay_ms": 178.61,
+      "mean_early_close_ms": 257.82,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.4208,
+      "mean_false_open": 1.0895,
+      "mean_start_delay_ms": 178.61,
+      "mean_early_close_ms": 257.82,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.4668,
+      "mean_false_open": 1.0008,
+      "mean_start_delay_ms": 177.94,
+      "mean_early_close_ms": 315.96,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.4668,
+      "mean_false_open": 1.0008,
+      "mean_start_delay_ms": 177.94,
+      "mean_early_close_ms": 315.96,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.5432,
+      "mean_false_open": 1.0545,
+      "mean_start_delay_ms": 177.32,
+      "mean_early_close_ms": 419.62,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.5432,
+      "mean_false_open": 1.0545,
+      "mean_start_delay_ms": 177.32,
+      "mean_early_close_ms": 419.62,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.5571,
+      "mean_false_open": 0.9818,
+      "mean_start_delay_ms": 177.94,
+      "mean_early_close_ms": 419.62,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4667,
+      "passed": 14,
+      "failed": 16,
+      "mean_missed_speech": 0.5571,
+      "mean_false_open": 0.9818,
+      "mean_start_delay_ms": 177.94,
+      "mean_early_close_ms": 419.62,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1092,
+      "mean_false_open": 2.9505,
+      "mean_start_delay_ms": 5.42,
+      "mean_early_close_ms": 153.83,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1092,
+      "mean_false_open": 2.9505,
+      "mean_start_delay_ms": 5.42,
+      "mean_early_close_ms": 153.83,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1092,
+      "mean_false_open": 2.9505,
+      "mean_start_delay_ms": 5.42,
+      "mean_early_close_ms": 153.83,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1092,
+      "mean_false_open": 2.9505,
+      "mean_start_delay_ms": 5.42,
+      "mean_early_close_ms": 153.83,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1092,
+      "mean_false_open": 2.9505,
+      "mean_start_delay_ms": 5.42,
+      "mean_early_close_ms": 153.83,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1092,
+      "mean_false_open": 2.9505,
+      "mean_start_delay_ms": 5.42,
+      "mean_early_close_ms": 153.83,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1092,
+      "mean_false_open": 2.9505,
+      "mean_start_delay_ms": 5.42,
+      "mean_early_close_ms": 153.83,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1092,
+      "mean_false_open": 2.9505,
+      "mean_start_delay_ms": 5.42,
+      "mean_early_close_ms": 153.83,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1208,
+      "mean_false_open": 2.8028,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 166.09,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1208,
+      "mean_false_open": 2.8028,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 166.09,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1208,
+      "mean_false_open": 2.8028,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 166.09,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1208,
+      "mean_false_open": 2.8028,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 166.09,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1208,
+      "mean_false_open": 2.8028,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 166.09,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1208,
+      "mean_false_open": 2.8028,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 166.09,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1208,
+      "mean_false_open": 2.8028,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 166.09,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1208,
+      "mean_false_open": 2.8028,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 166.09,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1433,
+      "mean_false_open": 2.48,
+      "mean_start_delay_ms": 181.49,
+      "mean_early_close_ms": 299.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1433,
+      "mean_false_open": 2.48,
+      "mean_start_delay_ms": 181.49,
+      "mean_early_close_ms": 299.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1433,
+      "mean_false_open": 2.48,
+      "mean_start_delay_ms": 181.49,
+      "mean_early_close_ms": 299.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1433,
+      "mean_false_open": 2.48,
+      "mean_start_delay_ms": 181.49,
+      "mean_early_close_ms": 299.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1433,
+      "mean_false_open": 2.48,
+      "mean_start_delay_ms": 181.49,
+      "mean_early_close_ms": 299.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1433,
+      "mean_false_open": 2.48,
+      "mean_start_delay_ms": 181.49,
+      "mean_early_close_ms": 299.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1433,
+      "mean_false_open": 2.48,
+      "mean_start_delay_ms": 181.49,
+      "mean_early_close_ms": 299.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.1433,
+      "mean_false_open": 2.48,
+      "mean_start_delay_ms": 181.49,
+      "mean_early_close_ms": 299.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.2121,
+      "mean_false_open": 2.1115,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 170.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.2121,
+      "mean_false_open": 2.1115,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 170.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.2121,
+      "mean_false_open": 2.0708,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 170.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.2121,
+      "mean_false_open": 2.0708,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 170.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.2358,
+      "mean_false_open": 2.0378,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 193.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.2358,
+      "mean_false_open": 2.0378,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 193.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.2358,
+      "mean_false_open": 2.0325,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 193.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.2358,
+      "mean_false_open": 2.0325,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 193.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.293,
+      "mean_false_open": 1.9064,
+      "mean_start_delay_ms": 91.32,
+      "mean_early_close_ms": 122.4,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.293,
+      "mean_false_open": 1.9064,
+      "mean_start_delay_ms": 91.32,
+      "mean_early_close_ms": 122.4,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.3006,
+      "mean_false_open": 1.7166,
+      "mean_start_delay_ms": 91.32,
+      "mean_early_close_ms": 129.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.3006,
+      "mean_false_open": 1.7166,
+      "mean_start_delay_ms": 91.32,
+      "mean_early_close_ms": 129.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.3361,
+      "mean_false_open": 1.3914,
+      "mean_start_delay_ms": 247.2,
+      "mean_early_close_ms": 257.82,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.3361,
+      "mean_false_open": 1.3914,
+      "mean_start_delay_ms": 247.2,
+      "mean_early_close_ms": 257.82,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.3696,
+      "mean_false_open": 1.4922,
+      "mean_start_delay_ms": 29.17,
+      "mean_early_close_ms": 122.4,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.3696,
+      "mean_false_open": 1.4922,
+      "mean_start_delay_ms": 29.17,
+      "mean_early_close_ms": 122.4,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.3772,
+      "mean_false_open": 1.4218,
+      "mean_start_delay_ms": 29.17,
+      "mean_early_close_ms": 129.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.3772,
+      "mean_false_open": 1.4218,
+      "mean_start_delay_ms": 29.17,
+      "mean_early_close_ms": 129.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.3862,
+      "mean_false_open": 1.3208,
+      "mean_start_delay_ms": 245.92,
+      "mean_early_close_ms": 320.04,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.3862,
+      "mean_false_open": 1.3208,
+      "mean_start_delay_ms": 245.92,
+      "mean_early_close_ms": 320.04,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.4019,
+      "mean_false_open": 1.0033,
+      "mean_start_delay_ms": 183.94,
+      "mean_early_close_ms": 257.82,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.4019,
+      "mean_false_open": 1.0033,
+      "mean_start_delay_ms": 183.94,
+      "mean_early_close_ms": 257.82,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.4467,
+      "mean_false_open": 1.3274,
+      "mean_start_delay_ms": 141.32,
+      "mean_early_close_ms": 240.48,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.4467,
+      "mean_false_open": 1.3274,
+      "mean_start_delay_ms": 141.32,
+      "mean_early_close_ms": 240.48,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.4732,
+      "mean_false_open": 0.9659,
+      "mean_start_delay_ms": 183.28,
+      "mean_early_close_ms": 315.96,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.4732,
+      "mean_false_open": 0.9659,
+      "mean_start_delay_ms": 183.28,
+      "mean_early_close_ms": 315.96,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.5622,
+      "mean_false_open": 0.9462,
+      "mean_start_delay_ms": 183.28,
+      "mean_early_close_ms": 419.62,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.5622,
+      "mean_false_open": 0.9462,
+      "mean_start_delay_ms": 183.28,
+      "mean_early_close_ms": 419.62,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.5913,
+      "mean_false_open": 0.6859,
+      "mean_start_delay_ms": 175.94,
+      "mean_early_close_ms": 467.09,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4333,
+      "passed": 13,
+      "failed": 17,
+      "mean_missed_speech": 0.5913,
+      "mean_false_open": 0.6859,
+      "mean_start_delay_ms": 175.94,
+      "mean_early_close_ms": 467.09,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.2892,
+      "mean_false_open": 1.7025,
+      "mean_start_delay_ms": 248.7,
+      "mean_early_close_ms": 359.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.2892,
+      "mean_false_open": 1.7025,
+      "mean_start_delay_ms": 248.7,
+      "mean_early_close_ms": 359.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.2892,
+      "mean_false_open": 1.6572,
+      "mean_start_delay_ms": 248.7,
+      "mean_early_close_ms": 359.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.2892,
+      "mean_false_open": 1.6572,
+      "mean_start_delay_ms": 248.7,
+      "mean_early_close_ms": 359.32,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.306,
+      "mean_false_open": 1.974,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 279.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.306,
+      "mean_false_open": 1.974,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 279.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.306,
+      "mean_false_open": 1.948,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 279.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.306,
+      "mean_false_open": 1.948,
+      "mean_start_delay_ms": 70.92,
+      "mean_early_close_ms": 279.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3257,
+      "mean_false_open": 1.6211,
+      "mean_start_delay_ms": 248.08,
+      "mean_early_close_ms": 405.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3257,
+      "mean_false_open": 1.6211,
+      "mean_start_delay_ms": 248.08,
+      "mean_early_close_ms": 405.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3257,
+      "mean_false_open": 1.5777,
+      "mean_start_delay_ms": 248.08,
+      "mean_early_close_ms": 405.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3257,
+      "mean_false_open": 1.5777,
+      "mean_start_delay_ms": 248.08,
+      "mean_early_close_ms": 405.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3396,
+      "mean_false_open": 1.1176,
+      "mean_start_delay_ms": 264.7,
+      "mean_early_close_ms": 507.26,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3396,
+      "mean_false_open": 1.1176,
+      "mean_start_delay_ms": 264.7,
+      "mean_early_close_ms": 507.26,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3396,
+      "mean_false_open": 1.1176,
+      "mean_start_delay_ms": 264.7,
+      "mean_early_close_ms": 507.26,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3396,
+      "mean_false_open": 1.1176,
+      "mean_start_delay_ms": 264.7,
+      "mean_early_close_ms": 507.26,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3445,
+      "mean_false_open": 1.6851,
+      "mean_start_delay_ms": 91.32,
+      "mean_early_close_ms": 234.48,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3445,
+      "mean_false_open": 1.6851,
+      "mean_start_delay_ms": 91.32,
+      "mean_early_close_ms": 234.48,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3518,
+      "mean_false_open": 1.7485,
+      "mean_start_delay_ms": 22.73,
+      "mean_early_close_ms": 122.4,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3518,
+      "mean_false_open": 1.7485,
+      "mean_start_delay_ms": 22.73,
+      "mean_early_close_ms": 122.4,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3594,
+      "mean_false_open": 1.6754,
+      "mean_start_delay_ms": 22.73,
+      "mean_early_close_ms": 129.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.3594,
+      "mean_false_open": 1.6754,
+      "mean_start_delay_ms": 22.73,
+      "mean_early_close_ms": 129.99,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.4208,
+      "mean_false_open": 1.2582,
+      "mean_start_delay_ms": 178.61,
+      "mean_early_close_ms": 257.82,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.4208,
+      "mean_false_open": 1.2582,
+      "mean_start_delay_ms": 178.61,
+      "mean_early_close_ms": 257.82,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.4278,
+      "mean_false_open": 1.3171,
+      "mean_start_delay_ms": 29.99,
+      "mean_early_close_ms": 240.48,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.4278,
+      "mean_false_open": 1.3171,
+      "mean_start_delay_ms": 29.99,
+      "mean_early_close_ms": 240.48,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.4535,
+      "mean_false_open": 1.2068,
+      "mean_start_delay_ms": 177.32,
+      "mean_early_close_ms": 315.96,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 400.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.4535,
+      "mean_false_open": 1.2068,
+      "mean_start_delay_ms": 177.32,
+      "mean_early_close_ms": 315.96,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.4633,
+      "mean_false_open": 1.0573,
+      "mean_start_delay_ms": 245.92,
+      "mean_early_close_ms": 457.16,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.4633,
+      "mean_false_open": 1.0573,
+      "mean_start_delay_ms": 245.92,
+      "mean_early_close_ms": 457.16,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.5246,
+      "mean_false_open": 0.942,
+      "mean_start_delay_ms": 439.77,
+      "mean_early_close_ms": 505.84,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.5246,
+      "mean_false_open": 0.942,
+      "mean_start_delay_ms": 439.77,
+      "mean_early_close_ms": 505.84,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.577,
+      "mean_false_open": 0.6583,
+      "mean_start_delay_ms": 181.28,
+      "mean_early_close_ms": 469.04,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.577,
+      "mean_false_open": 0.6583,
+      "mean_start_delay_ms": 181.28,
+      "mean_early_close_ms": 469.04,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.7073,
+      "mean_false_open": 0.654,
+      "mean_start_delay_ms": 508.51,
+      "mean_early_close_ms": 421.1,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.7073,
+      "mean_false_open": 0.654,
+      "mean_start_delay_ms": 508.51,
+      "mean_early_close_ms": 421.1,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.7317,
+      "mean_false_open": 0.6264,
+      "mean_start_delay_ms": 514.46,
+      "mean_early_close_ms": 447.77,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.7317,
+      "mean_false_open": 0.6264,
+      "mean_start_delay_ms": 514.46,
+      "mean_early_close_ms": 447.77,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.9262,
+      "mean_false_open": 0.6429,
+      "mean_start_delay_ms": 347.32,
+      "mean_early_close_ms": 780.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.9262,
+      "mean_false_open": 0.6429,
+      "mean_start_delay_ms": 347.32,
+      "mean_early_close_ms": 780.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.9486,
+      "mean_false_open": 0.6153,
+      "mean_start_delay_ms": 353.28,
+      "mean_early_close_ms": 780.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.4,
+      "passed": 12,
+      "failed": 18,
+      "mean_missed_speech": 0.9486,
+      "mean_false_open": 0.6153,
+      "mean_start_delay_ms": 353.28,
+      "mean_early_close_ms": 780.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.1251,
+      "mean_false_open": 2.7318,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 212.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.1251,
+      "mean_false_open": 2.7318,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 212.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.1251,
+      "mean_false_open": 2.7318,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 212.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.1251,
+      "mean_false_open": 2.7318,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 212.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.1251,
+      "mean_false_open": 2.7318,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 212.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.1251,
+      "mean_false_open": 2.7318,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 212.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.1251,
+      "mean_false_open": 2.7318,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 212.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.1251,
+      "mean_false_open": 2.7318,
+      "mean_start_delay_ms": 4.75,
+      "mean_early_close_ms": 212.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.3363,
+      "mean_false_open": 1.2857,
+      "mean_start_delay_ms": 263.41,
+      "mean_early_close_ms": 505.26,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.3363,
+      "mean_false_open": 1.2857,
+      "mean_start_delay_ms": 263.41,
+      "mean_early_close_ms": 505.26,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.339,
+      "mean_false_open": 1.2757,
+      "mean_start_delay_ms": 264.08,
+      "mean_early_close_ms": 507.26,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.339,
+      "mean_false_open": 1.2757,
+      "mean_start_delay_ms": 264.08,
+      "mean_early_close_ms": 507.26,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.4277,
+      "mean_false_open": 1.187,
+      "mean_start_delay_ms": 434.08,
+      "mean_early_close_ms": 544.61,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.4277,
+      "mean_false_open": 1.187,
+      "mean_start_delay_ms": 434.08,
+      "mean_early_close_ms": 544.61,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.4339,
+      "mean_false_open": 1.5645,
+      "mean_start_delay_ms": 140.51,
+      "mean_early_close_ms": 240.48,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 700.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.4339,
+      "mean_false_open": 1.5645,
+      "mean_start_delay_ms": 140.51,
+      "mean_early_close_ms": 240.48,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.4377,
+      "mean_false_open": 1.149,
+      "mean_start_delay_ms": 434.75,
+      "mean_early_close_ms": 559.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.4377,
+      "mean_false_open": 1.149,
+      "mean_start_delay_ms": 434.75,
+      "mean_early_close_ms": 559.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.4383,
+      "mean_false_open": 1.065,
+      "mean_start_delay_ms": 435.37,
+      "mean_early_close_ms": 559.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.4383,
+      "mean_false_open": 1.065,
+      "mean_start_delay_ms": 435.37,
+      "mean_early_close_ms": 559.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.4383,
+      "mean_false_open": 1.065,
+      "mean_start_delay_ms": 435.37,
+      "mean_early_close_ms": 559.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.4383,
+      "mean_false_open": 1.065,
+      "mean_start_delay_ms": 435.37,
+      "mean_early_close_ms": 559.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.5365,
+      "mean_false_open": 1.0558,
+      "mean_start_delay_ms": 458.6,
+      "mean_early_close_ms": 808.17,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.5365,
+      "mean_false_open": 1.0558,
+      "mean_start_delay_ms": 458.6,
+      "mean_early_close_ms": 808.17,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.5378,
+      "mean_false_open": 1.0391,
+      "mean_start_delay_ms": 459.27,
+      "mean_early_close_ms": 808.17,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.5378,
+      "mean_false_open": 1.0391,
+      "mean_start_delay_ms": 459.27,
+      "mean_early_close_ms": 808.17,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.5384,
+      "mean_false_open": 0.9878,
+      "mean_start_delay_ms": 459.89,
+      "mean_early_close_ms": 808.17,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.5384,
+      "mean_false_open": 0.9878,
+      "mean_start_delay_ms": 459.89,
+      "mean_early_close_ms": 808.17,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.5384,
+      "mean_false_open": 0.9878,
+      "mean_start_delay_ms": 459.89,
+      "mean_early_close_ms": 808.17,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 16.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.5384,
+      "mean_false_open": 0.9878,
+      "mean_start_delay_ms": 459.89,
+      "mean_early_close_ms": 808.17,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.5813,
+      "mean_false_open": 0.9493,
+      "mean_start_delay_ms": 175.32,
+      "mean_early_close_ms": 467.09,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.5813,
+      "mean_false_open": 0.9493,
+      "mean_start_delay_ms": 175.32,
+      "mean_early_close_ms": 467.09,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.682,
+      "mean_false_open": 0.81,
+      "mean_start_delay_ms": 507.84,
+      "mean_early_close_ms": 393.1,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.682,
+      "mean_false_open": 0.81,
+      "mean_start_delay_ms": 507.84,
+      "mean_early_close_ms": 393.1,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.7655,
+      "mean_false_open": 0.8602,
+      "mean_start_delay_ms": 415.25,
+      "mean_early_close_ms": 773.4,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.7655,
+      "mean_false_open": 0.8602,
+      "mean_start_delay_ms": 415.25,
+      "mean_early_close_ms": 773.4,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.8989,
+      "mean_false_open": 0.7709,
+      "mean_start_delay_ms": 346.66,
+      "mean_early_close_ms": 780.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 20.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3667,
+      "passed": 11,
+      "failed": 19,
+      "mean_missed_speech": 0.8989,
+      "mean_false_open": 0.7709,
+      "mean_start_delay_ms": 346.66,
+      "mean_early_close_ms": 780.66,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2216,
+      "mean_false_open": 1.9576,
+      "mean_start_delay_ms": 181.51,
+      "mean_early_close_ms": 557.93,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2216,
+      "mean_false_open": 1.9576,
+      "mean_start_delay_ms": 181.51,
+      "mean_early_close_ms": 557.93,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2216,
+      "mean_false_open": 1.9576,
+      "mean_start_delay_ms": 181.51,
+      "mean_early_close_ms": 557.93,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2216,
+      "mean_false_open": 1.9576,
+      "mean_start_delay_ms": 181.51,
+      "mean_early_close_ms": 557.93,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2216,
+      "mean_false_open": 1.9576,
+      "mean_start_delay_ms": 181.51,
+      "mean_early_close_ms": 557.93,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2216,
+      "mean_false_open": 1.9576,
+      "mean_start_delay_ms": 181.51,
+      "mean_early_close_ms": 557.93,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2216,
+      "mean_false_open": 1.9576,
+      "mean_start_delay_ms": 181.51,
+      "mean_early_close_ms": 557.93,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 3.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2216,
+      "mean_false_open": 1.9576,
+      "mean_start_delay_ms": 181.51,
+      "mean_early_close_ms": 557.93,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2385,
+      "mean_false_open": 1.7965,
+      "mean_start_delay_ms": 352.83,
+      "mean_early_close_ms": 593.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2385,
+      "mean_false_open": 1.7965,
+      "mean_start_delay_ms": 352.83,
+      "mean_early_close_ms": 593.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2385,
+      "mean_false_open": 1.7891,
+      "mean_start_delay_ms": 352.83,
+      "mean_early_close_ms": 593.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2385,
+      "mean_false_open": 1.7891,
+      "mean_start_delay_ms": 352.83,
+      "mean_early_close_ms": 593.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2385,
+      "mean_false_open": 1.7891,
+      "mean_start_delay_ms": 352.83,
+      "mean_early_close_ms": 593.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2385,
+      "mean_false_open": 1.7891,
+      "mean_start_delay_ms": 352.83,
+      "mean_early_close_ms": 593.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2385,
+      "mean_false_open": 1.7891,
+      "mean_start_delay_ms": 352.83,
+      "mean_early_close_ms": 593.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 5.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3333,
+      "passed": 10,
+      "failed": 20,
+      "mean_missed_speech": 0.2385,
+      "mean_false_open": 1.7891,
+      "mean_start_delay_ms": 352.83,
+      "mean_early_close_ms": 593.27,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3,
+      "passed": 9,
+      "failed": 21,
+      "mean_missed_speech": 0.3031,
+      "mean_false_open": 1.7298,
+      "mean_start_delay_ms": 450.68,
+      "mean_early_close_ms": 765.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 8.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3,
+      "passed": 9,
+      "failed": 21,
+      "mean_missed_speech": 0.3031,
+      "mean_false_open": 1.7298,
+      "mean_start_delay_ms": 450.68,
+      "mean_early_close_ms": 765.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3,
+      "passed": 9,
+      "failed": 21,
+      "mean_missed_speech": 0.3031,
+      "mean_false_open": 1.7185,
+      "mean_start_delay_ms": 450.68,
+      "mean_early_close_ms": 765.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 10.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3,
+      "passed": 9,
+      "failed": 21,
+      "mean_missed_speech": 0.3031,
+      "mean_false_open": 1.7185,
+      "mean_start_delay_ms": 450.68,
+      "mean_early_close_ms": 765.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3,
+      "passed": 9,
+      "failed": 21,
+      "mean_missed_speech": 0.3031,
+      "mean_false_open": 1.7185,
+      "mean_start_delay_ms": 450.68,
+      "mean_early_close_ms": 765.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 12.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3,
+      "passed": 9,
+      "failed": 21,
+      "mean_missed_speech": 0.3031,
+      "mean_false_open": 1.7185,
+      "mean_start_delay_ms": 450.68,
+      "mean_early_close_ms": 765.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 100.0
+      },
+      "pass_rate": 0.3,
+      "passed": 9,
+      "failed": 21,
+      "mean_missed_speech": 0.3031,
+      "mean_false_open": 1.7185,
+      "mean_start_delay_ms": 450.68,
+      "mean_early_close_ms": 765.5,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "open_margin_db": 15.0,
+        "close_margin_db": 7.0,
+        "peak_open_margin_db": 12.0,
+        "release_ms": 200.0,
+        "hold_ms": 200.0
+      },
+      "pass_rate": 0.3,
+      "passed": 9,
+      "failed": 21,
+      "mean_missed_speech": 0.3031,
+      "mean_false_open": 1.7185,
+      "mean_start_delay_ms": 450.68,
+      "mean_early_close_ms": 765.5,
+      "total_scenarios": 30
+    }
+  ]
+}

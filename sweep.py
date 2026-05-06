@@ -29,7 +29,17 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from gate import GateConfig, run_gate, PercentileGateConfig, run_gate_percentile, HpfDbGateConfig, run_gate_hpf, BandpassDbGateConfig, run_gate_bandpass, DualTcGateConfig, run_gate_dual_tc, RollingLinGateConfig, run_gate_rolling_lin
+from gate import (
+    GateConfig, run_gate,
+    PercentileGateConfig, run_gate_percentile,
+    MinStatsGateConfig, run_gate_min_stats,
+    HpfDbGateConfig, run_gate_hpf,
+    BandpassDbGateConfig, run_gate_bandpass,
+    DualTcGateConfig, run_gate_dual_tc,
+    PeakRmsGateConfig, run_gate_peak_rms,
+    RollingLinGateConfig, run_gate_rolling_lin,
+    TwoStageGateConfig, run_gate_two_stage,
+)
 from scenario import build_recipes, mix_audio
 from score import ScoreThresholds, score_scenario
 
@@ -149,6 +159,76 @@ FULL_GRID_PERCENTILE = {
 # Rolling linear regression gate parameter grids  (method 14)
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# Method 5 — Minimum-statistics gate
+# ---------------------------------------------------------------------------
+
+FULL_GRID_MIN_STATS = {
+    "open_margin_db":   [8.0, 10.0, 12.0, 15.0],
+    "close_margin_db":  [3.0, 5.0, 7.0],
+    "release_ms":       [200.0, 400.0, 700.0],
+    "hold_ms":          [100.0, 200.0],
+    "min_window_sec":   [1.0, 2.0, 3.0],
+    # 4 × 3 × 3 × 2 × 3 = 216 combinations
+}
+
+QUICK_GRID_MIN_STATS = {
+    "open_margin_db":   [8.0, 12.0],
+    "close_margin_db":  [3.0, 7.0],
+    "release_ms":       [200.0, 700.0],
+    "hold_ms":          [100.0, 200.0],
+    "min_window_sec":   [1.0, 3.0],
+    # 2^5 = 32 combinations
+}
+
+# ---------------------------------------------------------------------------
+# Method 7 — Peak + RMS hybrid gate
+# ---------------------------------------------------------------------------
+
+FULL_GRID_PEAK_RMS = {
+    "open_margin_db":      [8.0, 10.0, 12.0, 15.0],
+    "close_margin_db":     [3.0, 5.0, 7.0],
+    "peak_open_margin_db": [12.0, 16.0, 20.0],
+    "release_ms":          [200.0, 400.0, 700.0],
+    "hold_ms":             [100.0, 200.0],
+    # 4 × 3 × 3 × 3 × 2 = 216 combinations
+}
+
+QUICK_GRID_PEAK_RMS = {
+    "open_margin_db":      [8.0, 12.0],
+    "close_margin_db":     [3.0, 7.0],
+    "peak_open_margin_db": [12.0, 20.0],
+    "release_ms":          [200.0, 700.0],
+    "hold_ms":             [100.0, 200.0],
+    # 2^5 = 32 combinations
+}
+
+# ---------------------------------------------------------------------------
+# Method 15 — Two-stage open/sustain gate
+# ---------------------------------------------------------------------------
+
+FULL_GRID_TWO_STAGE = {
+    "open_margin_db":    [10.0, 12.0, 15.0, 18.0],
+    "sustain_margin_db": [4.0, 6.0, 8.0],
+    "close_margin_db":   [1.0, 2.0, 4.0],
+    "release_ms":        [250.0, 400.0, 600.0],
+    "hold_ms":           [150.0, 250.0],
+    # 4 × 3 × 3 × 3 × 2 = 216 combinations
+}
+
+QUICK_GRID_TWO_STAGE = {
+    "open_margin_db":    [10.0, 15.0],
+    "sustain_margin_db": [4.0, 8.0],
+    "close_margin_db":   [1.0, 4.0],
+    "release_ms":        [250.0, 600.0],
+    "hold_ms":           [150.0, 250.0],
+    # 2^5 = 32 combinations
+}
+
+# ---------------------------------------------------------------------------
+# Rolling linear regression gate parameter grids  (method 14)
+# ---------------------------------------------------------------------------
+
 FULL_GRID_ROLLING_LIN = {
     # Tuned for float32 normalised audio (RMS ~0.001–0.15).
     # sqrt(varY) of a quiet region ≈ 0.001–0.005, so stddev_open of 2–20
@@ -225,6 +305,12 @@ def _evaluate(recipes, audio_cache, cfg, thresholds: ScoreThresholds) -> list:
             predicted, _ = run_gate_bandpass(audio, recipe["sample_rate"], config=cfg)
         elif isinstance(cfg, DualTcGateConfig):
             predicted, _ = run_gate_dual_tc(audio, recipe["sample_rate"], config=cfg)
+        elif isinstance(cfg, MinStatsGateConfig):
+            predicted, _ = run_gate_min_stats(audio, recipe["sample_rate"], config=cfg)
+        elif isinstance(cfg, PeakRmsGateConfig):
+            predicted, _ = run_gate_peak_rms(audio, recipe["sample_rate"], config=cfg)
+        elif isinstance(cfg, TwoStageGateConfig):
+            predicted, _ = run_gate_two_stage(audio, recipe["sample_rate"], config=cfg)
         elif isinstance(cfg, RollingLinGateConfig):
             predicted, _ = run_gate_rolling_lin(audio, recipe["sample_rate"], config=cfg)
         else:
@@ -294,7 +380,10 @@ def main(argv=None):
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--quick", action="store_true",
                         help="Use a small 2-value grid for a fast sanity check")
-    parser.add_argument("--gate", choices=["ema", "percentile", "hpf", "bandpass", "dual_tc", "rolling_lin"], default="ema",
+    parser.add_argument("--gate",
+                        choices=["ema", "percentile", "min_stats", "hpf", "bandpass",
+                                 "dual_tc", "peak_rms", "rolling_lin", "two_stage"],
+                        default="ema",
                         help="Gate algorithm to sweep (default: ema)")
     args = parser.parse_args(argv)
 
@@ -303,14 +392,20 @@ def main(argv=None):
 
     if args.gate == "percentile":
         grid = QUICK_GRID_PERCENTILE if args.quick else FULL_GRID_PERCENTILE
+    elif args.gate == "min_stats":
+        grid = QUICK_GRID_MIN_STATS if args.quick else FULL_GRID_MIN_STATS
     elif args.gate == "hpf":
         grid = QUICK_GRID_HPF if args.quick else FULL_GRID_HPF
     elif args.gate == "bandpass":
         grid = QUICK_GRID_BANDPASS if args.quick else FULL_GRID_BANDPASS
     elif args.gate == "dual_tc":
         grid = QUICK_GRID_DUAL_TC if args.quick else FULL_GRID_DUAL_TC
+    elif args.gate == "peak_rms":
+        grid = QUICK_GRID_PEAK_RMS if args.quick else FULL_GRID_PEAK_RMS
     elif args.gate == "rolling_lin":
         grid = QUICK_GRID_ROLLING_LIN if args.quick else FULL_GRID_ROLLING_LIN
+    elif args.gate == "two_stage":
+        grid = QUICK_GRID_TWO_STAGE if args.quick else FULL_GRID_TWO_STAGE
     else:
         grid = QUICK_GRID if args.quick else FULL_GRID
     param_keys = list(grid.keys())
@@ -356,6 +451,33 @@ def main(argv=None):
                 percentile=params["percentile"],
             )
             extra = f"win={params['window_sec']:.1f}s  pct={params['percentile']:.0f}"
+        elif args.gate == "min_stats":
+            cfg = MinStatsGateConfig(
+                open_margin_db=params["open_margin_db"],
+                close_margin_db=params["close_margin_db"],
+                release_ms=params["release_ms"],
+                hold_ms=params["hold_ms"],
+                min_window_sec=params["min_window_sec"],
+            )
+            extra = f"win={params['min_window_sec']:.1f}s"
+        elif args.gate == "peak_rms":
+            cfg = PeakRmsGateConfig(
+                open_margin_db=params["open_margin_db"],
+                close_margin_db=params["close_margin_db"],
+                peak_open_margin_db=params["peak_open_margin_db"],
+                release_ms=params["release_ms"],
+                hold_ms=params["hold_ms"],
+            )
+            extra = f"pkmargin={params['peak_open_margin_db']:.0f}dB"
+        elif args.gate == "two_stage":
+            cfg = TwoStageGateConfig(
+                open_margin_db=params["open_margin_db"],
+                sustain_margin_db=params["sustain_margin_db"],
+                close_margin_db=params["close_margin_db"],
+                release_ms=params["release_ms"],
+                hold_ms=params["hold_ms"],
+            )
+            extra = f"sust={params['sustain_margin_db']:.0f}dB"
         elif args.gate == "hpf":
             cfg = HpfDbGateConfig(
                 open_margin_db=params["open_margin_db"],
@@ -431,6 +553,7 @@ def main(argv=None):
                 f"pass={agg['pass_rate']:5.1%}  "
                 f"ETA {eta:.0f}s"
             )
+        # Note: min_stats/peak_rms/two_stage all have open/close/rel/hold so use the else branch
 
     elapsed_total = time.monotonic() - t0
     print(f"\nSweep complete in {elapsed_total:.1f}s")
@@ -441,12 +564,18 @@ def main(argv=None):
     # --- Top 10 ---
     if args.gate == "percentile":
         hdr_extra = f"{'Window':>7}  {'Pct':>5}"
+    elif args.gate == "min_stats":
+        hdr_extra = f"{'MinWin':>6}"
     elif args.gate == "hpf":
         hdr_extra = f"{'EMAcls':>6}  {'HPFHz':>7}"
     elif args.gate == "bandpass":
         hdr_extra = f"{'EMAcls':>6}  {'LowHz':>6}  {'HighHz':>7}"
     elif args.gate == "dual_tc":
         hdr_extra = f"{'EMAcls':>6}  {'AtkMs':>6}  {'DecMs':>6}"
+    elif args.gate == "peak_rms":
+        hdr_extra = f"{'PkMgn':>6}"
+    elif args.gate == "two_stage":
+        hdr_extra = f"{'SustMgn':>7}"
     elif args.gate == "rolling_lin":
         hdr_extra = f"{'Std':>6}  {'CPct':>5}  {'Hist':>5}  {'Slope':>9}  {'Win':>5}"
     else:
@@ -468,6 +597,12 @@ def main(argv=None):
             row_extra = f"{p['noise_ema_tc_closed']:>6.2f}  {p['low_hz']:>6.0f}  {p['high_hz']:>7.0f}"
         elif args.gate == "dual_tc":
             row_extra = f"{p['noise_ema_tc_closed']:>6.2f}  {p['attack_tc']*1000:>6.0f}  {p['decay_tc']*1000:>6.0f}"
+        elif args.gate == "min_stats":
+            row_extra = f"{p['min_window_sec']:>6.1f}"
+        elif args.gate == "peak_rms":
+            row_extra = f"{p['peak_open_margin_db']:>6.0f}"
+        elif args.gate == "two_stage":
+            row_extra = f"{p['sustain_margin_db']:>7.0f}"
         elif args.gate == "rolling_lin":
             row_extra = (f"{p['stddev_open']:>6.0f}  {p['close_perc']:>5.1f}  "
                          f"{p['history_secs']:>5.1f}  {p['abs_slope_max']:>9.5f}  {p['win_secs']:>5.2f}")
@@ -520,11 +655,10 @@ def main(argv=None):
 
     # --- Heatmaps ---
     print(f"\nGenerating heatmaps ...")
-    if args.gate != "rolling_lin":
+    _NO_OPEN_CLOSE_PARAMS = {"rolling_lin"}
+    if args.gate not in _NO_OPEN_CLOSE_PARAMS:
         _heatmap(all_results, "open_margin_db", "close_margin_db",
                  out_dir / "heatmap_open_vs_close.png")
-        _heatmap(all_results, "open_margin_db", "release_ms",
-                 out_dir / "heatmap_open_vs_release.png")
     if args.gate == "percentile":
         _heatmap(all_results, "window_sec", "percentile",
                  out_dir / "heatmap_window_vs_percentile.png")
@@ -545,6 +679,21 @@ def main(argv=None):
                  out_dir / "heatmap_attack_vs_decay.png")
         _heatmap(all_results, "noise_ema_tc_closed", "open_margin_db",
                  out_dir / "heatmap_tc_vs_open.png")
+    elif args.gate == "min_stats":
+        _heatmap(all_results, "open_margin_db", "min_window_sec",
+                 out_dir / "heatmap_open_vs_minwin.png")
+        _heatmap(all_results, "open_margin_db", "release_ms",
+                 out_dir / "heatmap_open_vs_release.png")
+    elif args.gate == "peak_rms":
+        _heatmap(all_results, "open_margin_db", "peak_open_margin_db",
+                 out_dir / "heatmap_open_vs_peak.png")
+        _heatmap(all_results, "open_margin_db", "release_ms",
+                 out_dir / "heatmap_open_vs_release.png")
+    elif args.gate == "two_stage":
+        _heatmap(all_results, "open_margin_db", "sustain_margin_db",
+                 out_dir / "heatmap_open_vs_sustain.png")
+        _heatmap(all_results, "sustain_margin_db", "release_ms",
+                 out_dir / "heatmap_sustain_vs_release.png")
     elif args.gate == "rolling_lin":
         _heatmap(all_results, "stddev_open", "close_perc",
                  out_dir / "heatmap_stddev_vs_closeperc.png")

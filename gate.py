@@ -14,10 +14,13 @@ Available gates
 ---------------
   AdaptiveDbGate      (method 3)  — EMA noise floor in dB
   PercentileGate      (method 4)  — rolling-window percentile noise floor
+  MinStatsGate        (method 5)  — minimum-statistics noise floor estimator
   DualTcGate          (method 6)  — fast-attack / slow-decay envelope follower
+  PeakRmsGate         (method 7)  — peak + RMS hybrid (catches quiet consonants)
   BandpassDbGate      (method 9)  — 300-3400 Hz speech-band filtered gate
   HpfDbGate           (method 10) — high-pass filtered EMA gate
   RollingLinGate      (method 14) — rolling linear regression quiet-region gate
+  TwoStageGate        (method 15) — strict open / relaxed sustain / close hysteresis
 """
 
 import collections
@@ -863,6 +866,484 @@ def run_gate_dual_tc(
 ) -> tuple[list[list[float]], list[dict]]:
     """Run the dual-TC envelope gate on *audio* and return (predicted_segments, trace)."""
     gate = DualTcGate(config)
+    gate.reset(sample_rate, frame_size)
+    n = len(audio)
+    pos = 0
+    while pos + frame_size <= n:
+        gate.process_frame(audio[pos : pos + frame_size], pos / sample_rate)
+        pos += frame_size
+    if pos < n:
+        frame = np.zeros(frame_size, dtype=np.float32)
+        frame[: n - pos] = audio[pos:]
+        gate.process_frame(frame, pos / sample_rate)
+    gate.finish()
+    return gate.get_predicted_segments(), gate.get_debug_trace()
+
+
+# ===========================================================================
+# Method 5 — Minimum-statistics noise estimator gate
+# ===========================================================================
+#
+# Tracks the minimum energy of recent audio by dividing the recent history
+# into sub-windows and taking the minimum sub-window average.  This gives a
+# tighter (lower) estimate of the true noise floor than an EMA because it
+# naturally tracks the quietest recent frames rather than all frames.
+#
+# Reference: Martin, R. "Noise power spectral density estimation based on
+# optimal smoothing and minimum statistics" (2001).  This is a simplified
+# scalar-energy version.
+
+@dataclass
+class MinStatsGateConfig:
+    # Threshold margins above estimated noise floor (dB)
+    open_margin_db: float = 10.0
+    close_margin_db: float = 4.0
+
+    # Minimum-statistics window: total history divided into sub-windows
+    min_window_sec: float = 1.5     # total look-back window length
+    n_subwindows: int = 5           # number of sub-windows within that history
+
+    # EMA smoothing applied to each sub-window average (not to noise floor)
+    subwin_ema_tc: float = 0.08     # seconds — how fast sub-window average tracks energy
+
+    # Timing
+    release_ms: float = 300.0
+    hold_ms: float = 150.0
+
+    # Bias correction: min-stats underestimates noise; multiply by this factor
+    bias_correction: float = 1.5
+
+    initial_noise_db: float = -40.0
+
+
+class MinStatsGate:
+    """Method 5: minimum-statistics noise floor estimator + adaptive dB gate."""
+
+    def __init__(self, config: Optional[MinStatsGateConfig] = None):
+        self.config = config or MinStatsGateConfig()
+        self._sr: int = 16000
+        self._frame_size: int = 320
+        self._reset_state()
+
+    # ------------------------------------------------------------------
+    def reset(self, sample_rate: int = 16000, frame_size: int = 320) -> None:
+        self._sr = sample_rate
+        self._frame_size = frame_size
+        self._reset_state()
+
+    def process_frame(self, frame: np.ndarray, frame_start_sec: float) -> None:
+        cfg = self.config
+        frame_sec = self._frame_size / self._sr
+
+        rms = float(np.sqrt(np.mean(frame.astype(np.float64) ** 2)))
+        energy = rms * rms  # work in linear energy for min-stats, convert to dB at end
+
+        # Update current sub-window EMA
+        alpha = 1.0 - math.exp(-frame_sec / cfg.subwin_ema_tc)
+        self._subwin_ema += alpha * (energy - self._subwin_ema)
+        self._subwin_frame_count += 1
+
+        # Rotate sub-windows when current one has accumulated enough frames
+        if self._subwin_frame_count >= self._frames_per_subwin:
+            self._subwin_buf.append(self._subwin_ema)
+            self._subwin_frame_count = 0
+            # Keep only the last n_subwindows
+            while len(self._subwin_buf) > cfg.n_subwindows:
+                self._subwin_buf.popleft()
+
+        # Noise floor = minimum sub-window average (with bias correction)
+        if len(self._subwin_buf) > 0:
+            noise_energy = min(self._subwin_buf) * cfg.bias_correction
+        else:
+            noise_energy = self._subwin_ema * cfg.bias_correction
+        noise_energy = max(noise_energy, EPSILON)
+        noise_db = 10.0 * math.log10(noise_energy)  # energy → dB
+
+        frame_db = 20.0 * math.log10(rms + EPSILON)
+
+        open_thresh = noise_db + cfg.open_margin_db
+        close_thresh = noise_db + cfg.close_margin_db
+
+        release_frames = max(1, int((cfg.release_ms / 1000.0) / frame_sec))
+        hold_frames = max(1, int((cfg.hold_ms / 1000.0) / frame_sec))
+
+        prev_open = self._open
+
+        if not self._open:
+            if frame_db >= open_thresh:
+                self._open = True
+                self._hold_counter = hold_frames
+                self._below_counter = 0
+        else:
+            if frame_db >= close_thresh:
+                self._hold_counter = hold_frames
+                self._below_counter = 0
+            else:
+                self._below_counter += 1
+                self._hold_counter = max(0, self._hold_counter - 1)
+                if self._hold_counter == 0 and self._below_counter >= release_frames:
+                    self._open = False
+
+        frame_end_sec = frame_start_sec + frame_sec
+        if self._open and not prev_open:
+            self._seg_start = frame_start_sec
+        elif not self._open and prev_open:
+            self._segments.append([round(self._seg_start, 4), round(frame_start_sec, 4)])
+            self._seg_start = None
+
+        self._trace.append({
+            "time_sec": round(frame_start_sec, 4),
+            "frame_db": round(frame_db, 2),
+            "noise_db": round(noise_db, 2),
+            "open_thresh_db": round(open_thresh, 2),
+            "close_thresh_db": round(close_thresh, 2),
+            "gate_state": 1 if self._open else 0,
+        })
+        self._last_frame_end = frame_end_sec
+
+    def finish(self) -> None:
+        if self._open and self._seg_start is not None:
+            self._segments.append([round(self._seg_start, 4), round(self._last_frame_end, 4)])
+            self._open = False
+            self._seg_start = None
+
+    def get_predicted_segments(self) -> list[list[float]]:
+        return list(self._segments)
+
+    def get_debug_trace(self) -> list[dict]:
+        return list(self._trace)
+
+    def _reset_state(self) -> None:
+        cfg = self.config
+        frame_sec = self._frame_size / self._sr
+        self._frames_per_subwin = max(1, int((cfg.min_window_sec / cfg.n_subwindows) / frame_sec))
+        self._subwin_buf: collections.deque = collections.deque()
+        self._subwin_ema: float = 10 ** (cfg.initial_noise_db / 10.0)  # energy domain
+        self._subwin_frame_count: int = 0
+        self._open: bool = False
+        self._seg_start: Optional[float] = None
+        self._hold_counter: int = 0
+        self._below_counter: int = 0
+        self._segments: list[list[float]] = []
+        self._trace: list[dict] = []
+        self._last_frame_end: float = 0.0
+
+
+def run_gate_min_stats(
+    audio: np.ndarray,
+    sample_rate: int = 16000,
+    frame_size: int = 320,
+    config: Optional[MinStatsGateConfig] = None,
+) -> tuple[list[list[float]], list[dict]]:
+    """Run the minimum-statistics gate on *audio* and return (predicted_segments, trace)."""
+    gate = MinStatsGate(config)
+    gate.reset(sample_rate, frame_size)
+    n = len(audio)
+    pos = 0
+    while pos + frame_size <= n:
+        gate.process_frame(audio[pos : pos + frame_size], pos / sample_rate)
+        pos += frame_size
+    if pos < n:
+        frame = np.zeros(frame_size, dtype=np.float32)
+        frame[: n - pos] = audio[pos:]
+        gate.process_frame(frame, pos / sample_rate)
+    gate.finish()
+    return gate.get_predicted_segments(), gate.get_debug_trace()
+
+
+# ===========================================================================
+# Method 7 — Peak + RMS hybrid gate
+# ===========================================================================
+#
+# Tracks both a fast-attack/slow-decay peak envelope and an EMA RMS noise
+# floor.  Opens if EITHER the peak OR the RMS exceeds its respective
+# threshold.  This catches quiet consonants and short bursts that a
+# pure-RMS gate might miss while the RMS is still ramping up.
+
+@dataclass
+class PeakRmsGateConfig:
+    # RMS-based thresholds (dB above noise floor)
+    open_margin_db: float = 10.0
+    close_margin_db: float = 4.0
+
+    # Peak envelope follower time constants
+    peak_attack_ms: float = 3.0     # fast attack to catch transients
+    peak_decay_ms: float = 80.0     # moderate decay
+
+    # Extra margin for peak-based open decision (dB above noise floor)
+    peak_open_margin_db: float = 14.0
+
+    # EMA noise floor time constants
+    noise_ema_tc_closed: float = 0.3
+    noise_ema_tc_open: float = 4.0
+
+    # Timing
+    release_ms: float = 300.0
+    hold_ms: float = 150.0
+
+    initial_noise_db: float = -40.0
+
+
+class PeakRmsGate:
+    """Method 7: peak + RMS hybrid gate."""
+
+    def __init__(self, config: Optional[PeakRmsGateConfig] = None):
+        self.config = config or PeakRmsGateConfig()
+        self._sr: int = 16000
+        self._frame_size: int = 320
+        self._reset_state()
+
+    # ------------------------------------------------------------------
+    def reset(self, sample_rate: int = 16000, frame_size: int = 320) -> None:
+        self._sr = sample_rate
+        self._frame_size = frame_size
+        self._reset_state()
+
+    def process_frame(self, frame: np.ndarray, frame_start_sec: float) -> None:
+        cfg = self.config
+        frame_sec = self._frame_size / self._sr
+
+        rms = float(np.sqrt(np.mean(frame.astype(np.float64) ** 2)))
+        peak = float(np.max(np.abs(frame.astype(np.float64))))
+        frame_db = 20.0 * math.log10(rms + EPSILON)
+        peak_db = 20.0 * math.log10(peak + EPSILON)
+
+        # Peak envelope follower
+        atk = 1.0 - math.exp(-frame_sec / (cfg.peak_attack_ms / 1000.0))
+        dec = 1.0 - math.exp(-frame_sec / (cfg.peak_decay_ms / 1000.0))
+        if peak_db > self._peak_env_db:
+            self._peak_env_db += atk * (peak_db - self._peak_env_db)
+        else:
+            self._peak_env_db += dec * (peak_db - self._peak_env_db)
+
+        # EMA noise floor in dB
+        tc = cfg.noise_ema_tc_closed if not self._open else cfg.noise_ema_tc_open
+        alpha = 1.0 - math.exp(-frame_sec / tc)
+        self._noise_db += alpha * (frame_db - self._noise_db)
+
+        rms_open_thresh = self._noise_db + cfg.open_margin_db
+        rms_close_thresh = self._noise_db + cfg.close_margin_db
+        peak_open_thresh = self._noise_db + cfg.peak_open_margin_db
+
+        release_frames = max(1, int((cfg.release_ms / 1000.0) / frame_sec))
+        hold_frames = max(1, int((cfg.hold_ms / 1000.0) / frame_sec))
+
+        prev_open = self._open
+        above_close = frame_db >= rms_close_thresh
+
+        if not self._open:
+            # Open on RMS OR peak evidence
+            if frame_db >= rms_open_thresh or self._peak_env_db >= peak_open_thresh:
+                self._open = True
+                self._hold_counter = hold_frames
+                self._below_counter = 0
+        else:
+            if above_close:
+                self._hold_counter = hold_frames
+                self._below_counter = 0
+            else:
+                self._below_counter += 1
+                self._hold_counter = max(0, self._hold_counter - 1)
+                if self._hold_counter == 0 and self._below_counter >= release_frames:
+                    self._open = False
+
+        frame_end_sec = frame_start_sec + frame_sec
+        if self._open and not prev_open:
+            self._seg_start = frame_start_sec
+        elif not self._open and prev_open:
+            self._segments.append([round(self._seg_start, 4), round(frame_start_sec, 4)])
+            self._seg_start = None
+
+        self._trace.append({
+            "time_sec": round(frame_start_sec, 4),
+            "frame_db": round(frame_db, 2),
+            "peak_env_db": round(self._peak_env_db, 2),
+            "noise_db": round(self._noise_db, 2),
+            "rms_open_thresh_db": round(rms_open_thresh, 2),
+            "rms_close_thresh_db": round(rms_close_thresh, 2),
+            "peak_open_thresh_db": round(peak_open_thresh, 2),
+            "gate_state": 1 if self._open else 0,
+        })
+        self._last_frame_end = frame_end_sec
+
+    def finish(self) -> None:
+        if self._open and self._seg_start is not None:
+            self._segments.append([round(self._seg_start, 4), round(self._last_frame_end, 4)])
+            self._open = False
+            self._seg_start = None
+
+    def get_predicted_segments(self) -> list[list[float]]:
+        return list(self._segments)
+
+    def get_debug_trace(self) -> list[dict]:
+        return list(self._trace)
+
+    def _reset_state(self) -> None:
+        self._noise_db: float = self.config.initial_noise_db
+        self._peak_env_db: float = self.config.initial_noise_db
+        self._open: bool = False
+        self._seg_start: Optional[float] = None
+        self._hold_counter: int = 0
+        self._below_counter: int = 0
+        self._segments: list[list[float]] = []
+        self._trace: list[dict] = []
+        self._last_frame_end: float = 0.0
+
+
+def run_gate_peak_rms(
+    audio: np.ndarray,
+    sample_rate: int = 16000,
+    frame_size: int = 320,
+    config: Optional[PeakRmsGateConfig] = None,
+) -> tuple[list[list[float]], list[dict]]:
+    """Run the peak+RMS hybrid gate on *audio* and return (predicted_segments, trace)."""
+    gate = PeakRmsGate(config)
+    gate.reset(sample_rate, frame_size)
+    n = len(audio)
+    pos = 0
+    while pos + frame_size <= n:
+        gate.process_frame(audio[pos : pos + frame_size], pos / sample_rate)
+        pos += frame_size
+    if pos < n:
+        frame = np.zeros(frame_size, dtype=np.float32)
+        frame[: n - pos] = audio[pos:]
+        gate.process_frame(frame, pos / sample_rate)
+    gate.finish()
+    return gate.get_predicted_segments(), gate.get_debug_trace()
+
+
+# ===========================================================================
+# Method 15 — Two-stage open/sustain gate
+# ===========================================================================
+#
+# Uses three distinct dB margins:
+#   open_margin_db    — strict threshold to open from closed state
+#   sustain_margin_db — relaxed threshold to stay open (avoids mid-utterance drop)
+#   close_margin_db   — must fall below this for release_ms before closing
+#
+# The sustain margin sits between open and close, creating a wider hysteresis
+# band.  This is "highly relevant for speech" because avoiding mid-utterance
+# closure is more important than closing at the earliest possible instant.
+
+@dataclass
+class TwoStageGateConfig:
+    open_margin_db: float = 12.0      # strict: signal must be this far above noise to open
+    sustain_margin_db: float = 6.0    # relaxed: keep open if signal is above this
+    close_margin_db: float = 2.0      # close only once signal drops below this for release_ms
+
+    noise_ema_tc_closed: float = 0.3
+    noise_ema_tc_open: float = 4.0
+
+    release_ms: float = 350.0
+    hold_ms: float = 200.0
+
+    initial_noise_db: float = -40.0
+
+
+class TwoStageGate:
+    """Method 15: two-stage open/sustain gate with wide hysteresis band."""
+
+    def __init__(self, config: Optional[TwoStageGateConfig] = None):
+        self.config = config or TwoStageGateConfig()
+        self._sr: int = 16000
+        self._frame_size: int = 320
+        self._reset_state()
+
+    # ------------------------------------------------------------------
+    def reset(self, sample_rate: int = 16000, frame_size: int = 320) -> None:
+        self._sr = sample_rate
+        self._frame_size = frame_size
+        self._reset_state()
+
+    def process_frame(self, frame: np.ndarray, frame_start_sec: float) -> None:
+        cfg = self.config
+        frame_sec = self._frame_size / self._sr
+
+        rms = float(np.sqrt(np.mean(frame.astype(np.float64) ** 2)))
+        frame_db = 20.0 * math.log10(rms + EPSILON)
+
+        tc = cfg.noise_ema_tc_closed if not self._open else cfg.noise_ema_tc_open
+        alpha = 1.0 - math.exp(-frame_sec / tc)
+        self._noise_db += alpha * (frame_db - self._noise_db)
+
+        open_thresh    = self._noise_db + cfg.open_margin_db
+        sustain_thresh = self._noise_db + cfg.sustain_margin_db
+        close_thresh   = self._noise_db + cfg.close_margin_db
+
+        release_frames = max(1, int((cfg.release_ms / 1000.0) / frame_sec))
+        hold_frames    = max(1, int((cfg.hold_ms / 1000.0) / frame_sec))
+
+        prev_open = self._open
+
+        if not self._open:
+            if frame_db >= open_thresh:
+                self._open = True
+                self._hold_counter = hold_frames
+                self._below_counter = 0
+        else:
+            # Refresh hold on sustain threshold (more generous than close)
+            if frame_db >= sustain_thresh:
+                self._hold_counter = hold_frames
+                self._below_counter = 0
+            elif frame_db >= close_thresh:
+                # Between close and sustain: let hold tick down but don't count toward release
+                self._hold_counter = max(0, self._hold_counter - 1)
+            else:
+                # Below close threshold: count toward release
+                self._below_counter += 1
+                self._hold_counter = max(0, self._hold_counter - 1)
+                if self._hold_counter == 0 and self._below_counter >= release_frames:
+                    self._open = False
+
+        frame_end_sec = frame_start_sec + frame_sec
+        if self._open and not prev_open:
+            self._seg_start = frame_start_sec
+        elif not self._open and prev_open:
+            self._segments.append([round(self._seg_start, 4), round(frame_start_sec, 4)])
+            self._seg_start = None
+
+        self._trace.append({
+            "time_sec": round(frame_start_sec, 4),
+            "frame_db": round(frame_db, 2),
+            "noise_db": round(self._noise_db, 2),
+            "open_thresh_db": round(open_thresh, 2),
+            "sustain_thresh_db": round(sustain_thresh, 2),
+            "close_thresh_db": round(close_thresh, 2),
+            "gate_state": 1 if self._open else 0,
+        })
+        self._last_frame_end = frame_end_sec
+
+    def finish(self) -> None:
+        if self._open and self._seg_start is not None:
+            self._segments.append([round(self._seg_start, 4), round(self._last_frame_end, 4)])
+            self._open = False
+            self._seg_start = None
+
+    def get_predicted_segments(self) -> list[list[float]]:
+        return list(self._segments)
+
+    def get_debug_trace(self) -> list[dict]:
+        return list(self._trace)
+
+    def _reset_state(self) -> None:
+        self._noise_db: float = self.config.initial_noise_db
+        self._open: bool = False
+        self._seg_start: Optional[float] = None
+        self._hold_counter: int = 0
+        self._below_counter: int = 0
+        self._segments: list[list[float]] = []
+        self._trace: list[dict] = []
+        self._last_frame_end: float = 0.0
+
+
+def run_gate_two_stage(
+    audio: np.ndarray,
+    sample_rate: int = 16000,
+    frame_size: int = 320,
+    config: Optional[TwoStageGateConfig] = None,
+) -> tuple[list[list[float]], list[dict]]:
+    """Run the two-stage open/sustain gate on *audio* and return (predicted_segments, trace)."""
+    gate = TwoStageGate(config)
     gate.reset(sample_rate, frame_size)
     n = len(audio)
     pos = 0
