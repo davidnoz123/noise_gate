@@ -12,6 +12,7 @@ Usage
   python sweep.py --count 30 --seed 99
   python sweep.py --out-dir results/sweep01
   python sweep.py --quick                # tiny 2x2x2 grid for a fast sanity check
+  python sweep.py --gate hpf             # high-pass filtered dB gate (method 10)
 """
 
 import argparse
@@ -26,7 +27,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from gate import GateConfig, run_gate, PercentileGateConfig, run_gate_percentile
+from gate import GateConfig, run_gate, PercentileGateConfig, run_gate_percentile, HpfDbGateConfig, run_gate_hpf
 from scenario import build_recipes, mix_audio
 from score import ScoreThresholds, score_scenario
 
@@ -50,6 +51,30 @@ QUICK_GRID = {
     "release_ms":          [300.0, 600.0],
     "hold_ms":             [150.0, 300.0],
     "noise_ema_tc_closed": [0.3, 0.8],
+}
+
+# ---------------------------------------------------------------------------
+# HPF gate parameter grids  (method 10)
+# ---------------------------------------------------------------------------
+
+FULL_GRID_HPF = {
+    "open_margin_db":      [6.0, 8.0, 10.0, 12.0],
+    "close_margin_db":     [2.0, 4.0, 6.0],
+    "release_ms":          [300.0, 500.0, 800.0],
+    "hold_ms":             [100.0, 250.0],
+    "noise_ema_tc_closed": [0.3, 1.0],
+    "cutoff_hz":           [80.0, 120.0, 200.0],
+    # 4 × 3 × 3 × 2 × 2 × 3 = 432 combinations
+}
+
+QUICK_GRID_HPF = {
+    "open_margin_db":      [8.0, 12.0],
+    "close_margin_db":     [3.0, 6.0],
+    "release_ms":          [300.0, 800.0],
+    "hold_ms":             [100.0, 250.0],
+    "noise_ema_tc_closed": [0.3, 1.0],
+    "cutoff_hz":           [80.0, 200.0],
+    # 2^6 = 64 combinations
 }
 
 # ---------------------------------------------------------------------------
@@ -106,14 +131,15 @@ def _aggregate(scores: list) -> dict:
 def _evaluate(recipes, audio_cache, cfg, thresholds: ScoreThresholds) -> list:
     """Run gate + score for all recipes and return list of ScenarioScore.
 
-    *cfg* may be a GateConfig (EMA gate) or PercentileGateConfig.
+    *cfg* may be a GateConfig, PercentileGateConfig, or HpfDbGateConfig.
     """
-    use_percentile = isinstance(cfg, PercentileGateConfig)
     scores = []
     for recipe in recipes:
         audio = audio_cache[recipe["scenario_id"]]
-        if use_percentile:
+        if isinstance(cfg, PercentileGateConfig):
             predicted, _ = run_gate_percentile(audio, recipe["sample_rate"], config=cfg)
+        elif isinstance(cfg, HpfDbGateConfig):
+            predicted, _ = run_gate_hpf(audio, recipe["sample_rate"], config=cfg)
         else:
             predicted, _ = run_gate(audio, recipe["sample_rate"], config=cfg)
         sc = score_scenario(
@@ -181,7 +207,7 @@ def main(argv=None):
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--quick", action="store_true",
                         help="Use a small 2-value grid for a fast sanity check")
-    parser.add_argument("--gate", choices=["ema", "percentile"], default="ema",
+    parser.add_argument("--gate", choices=["ema", "percentile", "hpf"], default="ema",
                         help="Gate algorithm to sweep (default: ema)")
     args = parser.parse_args(argv)
 
@@ -190,6 +216,8 @@ def main(argv=None):
 
     if args.gate == "percentile":
         grid = QUICK_GRID_PERCENTILE if args.quick else FULL_GRID_PERCENTILE
+    elif args.gate == "hpf":
+        grid = QUICK_GRID_HPF if args.quick else FULL_GRID_HPF
     else:
         grid = QUICK_GRID if args.quick else FULL_GRID
     param_keys = list(grid.keys())
@@ -235,6 +263,16 @@ def main(argv=None):
                 percentile=params["percentile"],
             )
             extra = f"win={params['window_sec']:.1f}s  pct={params['percentile']:.0f}"
+        elif args.gate == "hpf":
+            cfg = HpfDbGateConfig(
+                open_margin_db=params["open_margin_db"],
+                close_margin_db=params["close_margin_db"],
+                release_ms=params["release_ms"],
+                hold_ms=params["hold_ms"],
+                noise_ema_tc_closed=params["noise_ema_tc_closed"],
+                cutoff_hz=params["cutoff_hz"],
+            )
+            extra = f"tc={params['noise_ema_tc_closed']:.1f}s  hp={params['cutoff_hz']:.0f}Hz"
         else:
             cfg = GateConfig(
                 open_margin_db=params["open_margin_db"],
@@ -269,15 +307,19 @@ def main(argv=None):
     # --- Top 10 ---
     if args.gate == "percentile":
         hdr_extra = f"{'Window':>7}  {'Pct':>5}"
+    elif args.gate == "hpf":
+        hdr_extra = f"{'EMAcls':>6}  {'HPFHz':>7}"
     else:
         hdr_extra = f"{'EMAcls':>6}"
     print(f"\n{'Rank':<5} {'PassRate':>8}  {'MissSpch':>9}  {'FalseOpen':>9}  "
           f"{'OpenMgn':>7}  {'ClsMgn':>6}  {'Rel':>6}  {'Hold':>5}  {hdr_extra}")
-    print("-" * 95)
+    print("-" * 100)
     for rank, r in enumerate(all_results[:10], 1):
         p = r["params"]
         if args.gate == "percentile":
             row_extra = f"{p['window_sec']:>7.1f}  {p['percentile']:>5.0f}"
+        elif args.gate == "hpf":
+            row_extra = f"{p['noise_ema_tc_closed']:>6.2f}  {p['cutoff_hz']:>7.0f}"
         else:
             row_extra = f"{p.get('noise_ema_tc_closed', 0.3):>6.2f}"
         print(
@@ -329,6 +371,11 @@ def main(argv=None):
                  out_dir / "heatmap_window_vs_percentile.png")
         _heatmap(all_results, "open_margin_db", "window_sec",
                  out_dir / "heatmap_open_vs_window.png")
+    elif args.gate == "hpf":
+        _heatmap(all_results, "cutoff_hz", "open_margin_db",
+                 out_dir / "heatmap_cutoff_vs_open.png")
+        _heatmap(all_results, "noise_ema_tc_closed", "open_margin_db",
+                 out_dir / "heatmap_tc_vs_open.png")
     else:
         _heatmap(all_results, "noise_ema_tc_closed", "open_margin_db",
                  out_dir / "heatmap_tc_vs_open.png")

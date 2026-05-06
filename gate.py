@@ -14,6 +14,7 @@ Available gates
 ---------------
   AdaptiveDbGate      (method 3)  — EMA noise floor in dB
   PercentileGate      (method 4)  — rolling-window percentile noise floor
+  HpfDbGate           (method 10) — high-pass filtered EMA gate
 """
 
 import collections
@@ -22,6 +23,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 import numpy as np
+from scipy.signal import butter, sosfilt, sosfilt_zi
 
 
 EPSILON = 1e-9  # prevent log(0)
@@ -339,6 +341,184 @@ def run_gate_percentile(
 ) -> tuple[list[list[float]], list[dict]]:
     """Run the percentile gate on *audio* and return (predicted_segments, trace)."""
     gate = PercentileGate(config)
+    gate.reset(sample_rate, frame_size)
+
+    n = len(audio)
+    pos = 0
+    while pos + frame_size <= n:
+        gate.process_frame(audio[pos : pos + frame_size], pos / sample_rate)
+        pos += frame_size
+
+    if pos < n:
+        frame = np.zeros(frame_size, dtype=np.float32)
+        frame[: n - pos] = audio[pos:]
+        gate.process_frame(frame, pos / sample_rate)
+
+    gate.finish()
+    return gate.get_predicted_segments(), gate.get_debug_trace()
+
+
+# ===========================================================================
+# Method 10 — High-pass filtered dB gate
+# ===========================================================================
+
+@dataclass
+class HpfDbGateConfig:
+    """Configuration for the high-pass filtered adaptive dB gate.
+
+    A Butterworth high-pass filter is applied to each frame *before* computing
+    RMS/dB.  This strips low-frequency rumble and handling noise (~0-150 Hz)
+    from the energy measurement so the noise floor estimate and open/close
+    thresholds are based only on speech-band energy.  The gate logic itself
+    (EMA noise floor, margins, release, hold) is identical to AdaptiveDbGate.
+    """
+    # High-pass filter
+    cutoff_hz: float = 120.0
+    filter_order: int = 2
+
+    # Thresholds (dB above estimated noise floor, measured on HPF signal)
+    open_margin_db: float = 10.0
+    close_margin_db: float = 4.0
+
+    # EMA time constants (seconds)
+    noise_ema_tc_closed: float = 0.3
+    noise_ema_tc_open: float = 4.0
+
+    # Timing
+    release_ms: float = 300.0
+    hold_ms: float = 150.0
+
+    # Initial noise floor estimate (dBFS)
+    initial_noise_db: float = -40.0
+
+
+class HpfDbGate:
+    """Adaptive dB gate that measures energy on a high-pass filtered copy of
+    each frame.  The filter state is maintained across frames for correct IIR
+    continuity.
+    """
+
+    def __init__(self, config: Optional[HpfDbGateConfig] = None):
+        self.config = config or HpfDbGateConfig()
+        self._sr: int = 16000
+        self._frame_size: int = 320
+        self._sos = None
+        self._zi = None
+        self._reset_state()
+
+    # ------------------------------------------------------------------
+    # Public interface
+    # ------------------------------------------------------------------
+
+    def reset(self, sample_rate: int = 16000, frame_size: int = 320) -> None:
+        self._sr = sample_rate
+        self._frame_size = frame_size
+        self._reset_state()
+
+    def process_frame(self, frame: np.ndarray, frame_start_sec: float) -> None:
+        cfg = self.config
+
+        # Filter frame through HPF (IIR state carried across calls)
+        filtered, self._zi = sosfilt(self._sos, frame.astype(np.float64), zi=self._zi)
+        rms = float(np.sqrt(np.mean(filtered ** 2)))
+        frame_db = 20.0 * math.log10(rms + EPSILON)
+
+        # EMA noise floor
+        tc = cfg.noise_ema_tc_closed if not self._open else cfg.noise_ema_tc_open
+        frame_sec = self._frame_size / self._sr
+        alpha = 1.0 - math.exp(-frame_sec / tc)
+        self._noise_db += alpha * (frame_db - self._noise_db)
+
+        open_thresh = self._noise_db + cfg.open_margin_db
+        close_thresh = self._noise_db + cfg.close_margin_db
+
+        release_frames = max(1, int((cfg.release_ms / 1000.0) / frame_sec))
+        hold_frames = max(1, int((cfg.hold_ms / 1000.0) / frame_sec))
+
+        prev_open = self._open
+        reason = ""
+
+        if not self._open:
+            if frame_db >= open_thresh:
+                self._open = True
+                self._hold_counter = hold_frames
+                self._below_counter = 0
+                reason = "OPEN_ENERGY_ABOVE_MARGIN"
+            else:
+                reason = "CLOSED_BELOW_THRESHOLD"
+        else:
+            if frame_db >= close_thresh:
+                self._hold_counter = hold_frames
+                self._below_counter = 0
+                reason = "OPEN_HOLD_REFRESH"
+            else:
+                self._below_counter += 1
+                self._hold_counter = max(0, self._hold_counter - 1)
+                if self._hold_counter == 0 and self._below_counter >= release_frames:
+                    self._open = False
+                    reason = "CLOSE_RELEASE_EXPIRED"
+                else:
+                    reason = "OPEN_HOLD_ACTIVE" if self._hold_counter > 0 else "OPEN_RELEASE_COUNTING"
+
+        frame_end_sec = frame_start_sec + frame_sec
+        if self._open and not prev_open:
+            self._seg_start = frame_start_sec
+        elif not self._open and prev_open:
+            self._segments.append([round(self._seg_start, 4), round(frame_start_sec, 4)])
+            self._seg_start = None
+
+        self._trace.append({
+            "time_sec": round(frame_start_sec, 4),
+            "frame_db": round(frame_db, 2),
+            "noise_db": round(self._noise_db, 2),
+            "open_thresh_db": round(open_thresh, 2),
+            "close_thresh_db": round(close_thresh, 2),
+            "gate_state": 1 if self._open else 0,
+            "reason": reason,
+        })
+        self._last_frame_end = frame_end_sec
+
+    def finish(self) -> None:
+        if self._open and self._seg_start is not None:
+            self._segments.append([round(self._seg_start, 4), round(self._last_frame_end, 4)])
+            self._open = False
+            self._seg_start = None
+
+    def get_predicted_segments(self) -> list[list[float]]:
+        return list(self._segments)
+
+    def get_debug_trace(self) -> list[dict]:
+        return list(self._trace)
+
+    # ------------------------------------------------------------------
+    # Internal helpers
+    # ------------------------------------------------------------------
+
+    def _reset_state(self) -> None:
+        cfg = self.config
+        nyq = self._sr / 2.0
+        self._sos = butter(cfg.filter_order, cfg.cutoff_hz / nyq,
+                           btype="highpass", output="sos")
+        # sosfilt_zi returns (n_sections, 2) — correct shape for 1D input
+        self._zi = sosfilt_zi(self._sos) * 0.0
+        self._noise_db: float = cfg.initial_noise_db
+        self._open: bool = False
+        self._seg_start: Optional[float] = None
+        self._hold_counter: int = 0
+        self._below_counter: int = 0
+        self._segments: list[list[float]] = []
+        self._trace: list[dict] = []
+        self._last_frame_end: float = 0.0
+
+
+def run_gate_hpf(
+    audio: np.ndarray,
+    sample_rate: int = 16000,
+    frame_size: int = 320,
+    config: Optional[HpfDbGateConfig] = None,
+) -> tuple[list[list[float]], list[dict]]:
+    """Run the high-pass filtered gate on *audio* and return (predicted_segments, trace)."""
+    gate = HpfDbGate(config)
     gate.reset(sample_rate, frame_size)
 
     n = len(audio)
