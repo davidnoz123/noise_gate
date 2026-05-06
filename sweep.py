@@ -150,19 +150,23 @@ FULL_GRID_PERCENTILE = {
 # ---------------------------------------------------------------------------
 
 FULL_GRID_ROLLING_LIN = {
-    "stddev_open":   [50.0, 100.0, 150.0, 300.0],
+    # Tuned for float32 normalised audio (RMS ~0.001–0.15).
+    # sqrt(varY) of a quiet region ≈ 0.001–0.005, so stddev_open of 2–20
+    # places the open threshold 0.002–0.1 above the quiet floor.
+    # abs_slope_max likewise scaled down ~1000× from the original PCM grid.
+    "stddev_open":   [2.0, 5.0, 10.0, 20.0],
     "close_perc":    [0.3, 0.5, 0.7],
     "history_secs":  [0.5, 1.0, 2.0],
-    "abs_slope_max": [0.00005, 0.0001, 0.0005],
+    "abs_slope_max": [1e-6, 1e-5, 1e-4],
     "win_secs":      [0.2, 0.5, 1.0],
     # 4 × 3 × 3 × 3 × 3 = 324 combinations
 }
 
 QUICK_GRID_ROLLING_LIN = {
-    "stddev_open":   [50.0, 150.0],
+    "stddev_open":   [2.0, 10.0],
     "close_perc":    [0.3, 0.7],
     "history_secs":  [0.5, 2.0],
-    "abs_slope_max": [0.00005, 0.0005],
+    "abs_slope_max": [1e-6, 1e-4],
     "win_secs":      [0.2, 1.0],
     # 2^5 = 32 combinations
 }
