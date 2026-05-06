@@ -1,0 +1,5629 @@
+{
+  "seed": 42,
+  "scenario_count": 30,
+  "grid": {
+    "stddev_open": [
+      50.0,
+      100.0,
+      150.0,
+      300.0
+    ],
+    "close_perc": [
+      0.3,
+      0.5,
+      0.7
+    ],
+    "history_secs": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "abs_slope_max": [
+      5e-05,
+      0.0001,
+      0.0005
+    ],
+    "win_secs": [
+      0.2,
+      0.5,
+      1.0
+    ]
+  },
+  "best": [
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.6494,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.6494,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.6494,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.6494,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.6494,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    }
+  ],
+  "all": [
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.6494,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.6494,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.6494,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.6494,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.6494,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.6494,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.5914,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.5914,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0321,
+      "mean_false_open": 1.5914,
+      "mean_start_delay_ms": 68.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0521,
+      "mean_false_open": 1.6154,
+      "mean_start_delay_ms": 88.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0521,
+      "mean_false_open": 1.6154,
+      "mean_start_delay_ms": 88.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0521,
+      "mean_false_open": 1.6154,
+      "mean_start_delay_ms": 88.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0521,
+      "mean_false_open": 1.6154,
+      "mean_start_delay_ms": 88.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0521,
+      "mean_false_open": 1.6154,
+      "mean_start_delay_ms": 88.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0521,
+      "mean_false_open": 1.6154,
+      "mean_start_delay_ms": 88.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0521,
+      "mean_false_open": 1.5574,
+      "mean_start_delay_ms": 88.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0521,
+      "mean_false_open": 1.5574,
+      "mean_start_delay_ms": 88.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.0521,
+      "mean_false_open": 1.5574,
+      "mean_start_delay_ms": 88.59,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.1628,
+      "mean_false_open": 1.3788,
+      "mean_start_delay_ms": 102.63,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.1628,
+      "mean_false_open": 1.3788,
+      "mean_start_delay_ms": 102.63,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.1628,
+      "mean_false_open": 1.3788,
+      "mean_start_delay_ms": 102.63,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.1628,
+      "mean_false_open": 1.3788,
+      "mean_start_delay_ms": 102.63,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.1628,
+      "mean_false_open": 1.3788,
+      "mean_start_delay_ms": 102.63,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.1628,
+      "mean_false_open": 1.3788,
+      "mean_start_delay_ms": 102.63,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.1628,
+      "mean_false_open": 1.3788,
+      "mean_start_delay_ms": 102.63,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.1628,
+      "mean_false_open": 1.3788,
+      "mean_start_delay_ms": 102.63,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1333,
+      "passed": 4,
+      "failed": 26,
+      "mean_missed_speech": 2.1628,
+      "mean_false_open": 1.3788,
+      "mean_start_delay_ms": 102.63,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6561,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6561,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6561,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6561,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6561,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6561,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6675,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6675,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6675,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6561,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6561,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6561,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6561,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6561,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6561,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6675,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6675,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6675,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.5981,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.5981,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.5981,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.5981,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.5981,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.5981,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6095,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6095,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.1,
+      "passed": 3,
+      "failed": 27,
+      "mean_missed_speech": 2.2908,
+      "mean_false_open": 1.6095,
+      "mean_start_delay_ms": 56.14,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.4144,
+      "mean_false_open": 1.3624,
+      "mean_start_delay_ms": 40.91,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.4144,
+      "mean_false_open": 1.3624,
+      "mean_start_delay_ms": 40.91,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.4144,
+      "mean_false_open": 1.3624,
+      "mean_start_delay_ms": 40.91,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.4144,
+      "mean_false_open": 1.3624,
+      "mean_start_delay_ms": 40.91,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.4144,
+      "mean_false_open": 1.3624,
+      "mean_start_delay_ms": 40.91,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.4144,
+      "mean_false_open": 1.3624,
+      "mean_start_delay_ms": 40.91,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.4144,
+      "mean_false_open": 1.3624,
+      "mean_start_delay_ms": 40.91,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.4144,
+      "mean_false_open": 1.3624,
+      "mean_start_delay_ms": 40.91,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.4144,
+      "mean_false_open": 1.3624,
+      "mean_start_delay_ms": 40.91,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.465,
+      "mean_false_open": 1.2297,
+      "mean_start_delay_ms": 11.52,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.465,
+      "mean_false_open": 1.2297,
+      "mean_start_delay_ms": 11.52,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.465,
+      "mean_false_open": 1.2297,
+      "mean_start_delay_ms": 11.52,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.465,
+      "mean_false_open": 1.2297,
+      "mean_start_delay_ms": 11.52,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.465,
+      "mean_false_open": 1.2297,
+      "mean_start_delay_ms": 11.52,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.465,
+      "mean_false_open": 1.2297,
+      "mean_start_delay_ms": 11.52,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.465,
+      "mean_false_open": 1.2297,
+      "mean_start_delay_ms": 11.52,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.465,
+      "mean_false_open": 1.2297,
+      "mean_start_delay_ms": 11.52,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.465,
+      "mean_false_open": 1.2297,
+      "mean_start_delay_ms": 11.52,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2074,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2074,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2074,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2414,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2414,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2414,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2074,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2074,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2074,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2414,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2414,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2414,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2074,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2074,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2074,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2414,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2414,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.472,
+      "mean_false_open": 1.2414,
+      "mean_start_delay_ms": 18.53,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5619,
+      "mean_false_open": 1.0372,
+      "mean_start_delay_ms": 11.71,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5619,
+      "mean_false_open": 1.0372,
+      "mean_start_delay_ms": 11.71,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5619,
+      "mean_false_open": 1.0372,
+      "mean_start_delay_ms": 11.71,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5619,
+      "mean_false_open": 1.0372,
+      "mean_start_delay_ms": 11.71,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5619,
+      "mean_false_open": 1.0372,
+      "mean_start_delay_ms": 11.71,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5619,
+      "mean_false_open": 1.0372,
+      "mean_start_delay_ms": 11.71,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5619,
+      "mean_false_open": 1.0372,
+      "mean_start_delay_ms": 11.71,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5619,
+      "mean_false_open": 1.0372,
+      "mean_start_delay_ms": 11.71,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5619,
+      "mean_false_open": 1.0372,
+      "mean_start_delay_ms": 11.71,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5666,
+      "mean_false_open": 1.0366,
+      "mean_start_delay_ms": 16.37,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5666,
+      "mean_false_open": 1.0366,
+      "mean_start_delay_ms": 16.37,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5666,
+      "mean_false_open": 1.0366,
+      "mean_start_delay_ms": 16.37,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5666,
+      "mean_false_open": 1.0366,
+      "mean_start_delay_ms": 16.37,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5666,
+      "mean_false_open": 1.0366,
+      "mean_start_delay_ms": 16.37,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5666,
+      "mean_false_open": 1.0366,
+      "mean_start_delay_ms": 16.37,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5666,
+      "mean_false_open": 1.0366,
+      "mean_start_delay_ms": 16.37,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5666,
+      "mean_false_open": 1.0366,
+      "mean_start_delay_ms": 16.37,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.5666,
+      "mean_false_open": 1.0366,
+      "mean_start_delay_ms": 16.37,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0401,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0401,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0401,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0741,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0741,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0741,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0401,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0401,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0401,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0741,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0741,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0741,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0401,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0401,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0401,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0741,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0741,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6628,
+      "mean_false_open": 1.0741,
+      "mean_start_delay_ms": 23.77,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2851,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2851,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2851,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2965,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2965,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2965,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2851,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2851,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2851,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2965,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2965,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2965,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2851,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2851,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2851,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2965,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2965,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6711,
+      "mean_false_open": 1.2965,
+      "mean_start_delay_ms": 26.46,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6726,
+      "mean_false_open": 1.2499,
+      "mean_start_delay_ms": 27.93,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6726,
+      "mean_false_open": 1.2499,
+      "mean_start_delay_ms": 27.93,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6726,
+      "mean_false_open": 1.2499,
+      "mean_start_delay_ms": 27.93,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6726,
+      "mean_false_open": 1.2499,
+      "mean_start_delay_ms": 27.93,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6726,
+      "mean_false_open": 1.2499,
+      "mean_start_delay_ms": 27.93,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6726,
+      "mean_false_open": 1.2499,
+      "mean_start_delay_ms": 27.93,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6726,
+      "mean_false_open": 1.2499,
+      "mean_start_delay_ms": 27.93,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6726,
+      "mean_false_open": 1.2499,
+      "mean_start_delay_ms": 27.93,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6726,
+      "mean_false_open": 1.2499,
+      "mean_start_delay_ms": 27.93,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4414,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4414,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4414,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4414,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4414,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4414,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4467,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4467,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4467,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4414,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4414,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4414,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4414,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4414,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4414,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4467,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4467,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.4467,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.3834,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.3834,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.3834,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.3834,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.3834,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.3834,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.3887,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.3887,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 50.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.686,
+      "mean_false_open": 1.3887,
+      "mean_start_delay_ms": 35.86,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2581,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2581,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2581,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2695,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2695,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2695,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2581,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2581,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2581,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2695,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2695,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2695,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2581,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2581,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2581,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2695,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2695,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6868,
+      "mean_false_open": 1.2695,
+      "mean_start_delay_ms": 42.13,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6879,
+      "mean_false_open": 1.2253,
+      "mean_start_delay_ms": 43.27,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6879,
+      "mean_false_open": 1.2253,
+      "mean_start_delay_ms": 43.27,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6879,
+      "mean_false_open": 1.2253,
+      "mean_start_delay_ms": 43.27,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6879,
+      "mean_false_open": 1.2253,
+      "mean_start_delay_ms": 43.27,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6879,
+      "mean_false_open": 1.2253,
+      "mean_start_delay_ms": 43.27,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6879,
+      "mean_false_open": 1.2253,
+      "mean_start_delay_ms": 43.27,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6879,
+      "mean_false_open": 1.2253,
+      "mean_start_delay_ms": 43.27,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6879,
+      "mean_false_open": 1.2253,
+      "mean_start_delay_ms": 43.27,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.6879,
+      "mean_false_open": 1.2253,
+      "mean_start_delay_ms": 43.27,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 1.0035,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 1.0035,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 1.0035,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 1.0035,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 1.0035,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 1.0035,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 1.0035,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 1.0035,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0667,
+      "passed": 2,
+      "failed": 28,
+      "mean_missed_speech": 2.9155,
+      "mean_false_open": 1.0035,
+      "mean_start_delay_ms": 5.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1739,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1739,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1739,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1792,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1792,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1792,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1739,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1739,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1739,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1792,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1792,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1792,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1739,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1739,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1739,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1792,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1792,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0032,
+      "mean_false_open": 1.1792,
+      "mean_start_delay_ms": 23.02,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0043,
+      "mean_false_open": 1.139,
+      "mean_start_delay_ms": 24.15,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0043,
+      "mean_false_open": 1.139,
+      "mean_start_delay_ms": 24.15,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0043,
+      "mean_false_open": 1.139,
+      "mean_start_delay_ms": 24.15,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0043,
+      "mean_false_open": 1.139,
+      "mean_start_delay_ms": 24.15,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0043,
+      "mean_false_open": 1.139,
+      "mean_start_delay_ms": 24.15,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0043,
+      "mean_false_open": 1.139,
+      "mean_start_delay_ms": 24.15,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0043,
+      "mean_false_open": 1.139,
+      "mean_start_delay_ms": 24.15,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0043,
+      "mean_false_open": 1.139,
+      "mean_start_delay_ms": 24.15,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 100.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0043,
+      "mean_false_open": 1.139,
+      "mean_start_delay_ms": 24.15,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1465,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1465,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1465,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1519,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1519,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1519,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1465,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1465,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1465,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1519,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1519,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1519,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1465,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1465,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1465,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1519,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1519,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.0159,
+      "mean_false_open": 1.1519,
+      "mean_start_delay_ms": 35.69,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.017,
+      "mean_false_open": 1.1137,
+      "mean_start_delay_ms": 36.82,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.017,
+      "mean_false_open": 1.1137,
+      "mean_start_delay_ms": 36.82,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.017,
+      "mean_false_open": 1.1137,
+      "mean_start_delay_ms": 36.82,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.017,
+      "mean_false_open": 1.1137,
+      "mean_start_delay_ms": 36.82,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.017,
+      "mean_false_open": 1.1137,
+      "mean_start_delay_ms": 36.82,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.017,
+      "mean_false_open": 1.1137,
+      "mean_start_delay_ms": 36.82,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.017,
+      "mean_false_open": 1.1137,
+      "mean_start_delay_ms": 36.82,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.017,
+      "mean_false_open": 1.1137,
+      "mean_start_delay_ms": 36.82,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 150.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.017,
+      "mean_false_open": 1.1137,
+      "mean_start_delay_ms": 36.82,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9905,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9905,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9905,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9905,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9905,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9905,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 1.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9905,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9905,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 2.0,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0333,
+      "passed": 1,
+      "failed": 29,
+      "mean_missed_speech": 3.1452,
+      "mean_false_open": 0.9905,
+      "mean_start_delay_ms": 4.99,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.7455,
+      "mean_false_open": 0.9022,
+      "mean_start_delay_ms": 9.82,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.7455,
+      "mean_false_open": 0.9022,
+      "mean_start_delay_ms": 9.82,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.7455,
+      "mean_false_open": 0.9022,
+      "mean_start_delay_ms": 9.82,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.7455,
+      "mean_false_open": 0.9022,
+      "mean_start_delay_ms": 9.82,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.7455,
+      "mean_false_open": 0.9022,
+      "mean_start_delay_ms": 9.82,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.7455,
+      "mean_false_open": 0.9022,
+      "mean_start_delay_ms": 9.82,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.7455,
+      "mean_false_open": 0.9022,
+      "mean_start_delay_ms": 9.82,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.7455,
+      "mean_false_open": 0.9022,
+      "mean_start_delay_ms": 9.82,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0005,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.7455,
+      "mean_false_open": 0.9022,
+      "mean_start_delay_ms": 9.82,
+      "mean_early_close_ms": 62.18,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.9182,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 8.0,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.9182,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 8.0,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.9182,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 8.0,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.9182,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 8.0,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.9182,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 8.0,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.9182,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 8.0,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.9182,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 8.0,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.9182,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 8.0,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 0.0001,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 2.9182,
+      "mean_false_open": 0.9922,
+      "mean_start_delay_ms": 8.0,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 3.1465,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 6.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 3.1465,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 6.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.3,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 3.1465,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 6.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 3.1465,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 6.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 3.1465,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 6.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.5,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 3.1465,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 6.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.2
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 3.1465,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 6.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 0.5
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 3.1465,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 6.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    },
+    {
+      "params": {
+        "stddev_open": 300.0,
+        "close_perc": 0.7,
+        "history_secs": 0.5,
+        "abs_slope_max": 5e-05,
+        "win_secs": 1.0
+      },
+      "pass_rate": 0.0,
+      "passed": 0,
+      "failed": 30,
+      "mean_missed_speech": 3.1465,
+      "mean_false_open": 0.9852,
+      "mean_start_delay_ms": 6.33,
+      "mean_early_close_ms": 0.0,
+      "total_scenarios": 30
+    }
+  ]
+}

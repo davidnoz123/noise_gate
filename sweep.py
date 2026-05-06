@@ -29,7 +29,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from gate import GateConfig, run_gate, PercentileGateConfig, run_gate_percentile, HpfDbGateConfig, run_gate_hpf, BandpassDbGateConfig, run_gate_bandpass, DualTcGateConfig, run_gate_dual_tc
+from gate import GateConfig, run_gate, PercentileGateConfig, run_gate_percentile, HpfDbGateConfig, run_gate_hpf, BandpassDbGateConfig, run_gate_bandpass, DualTcGateConfig, run_gate_dual_tc, RollingLinGateConfig, run_gate_rolling_lin
 from scenario import build_recipes, mix_audio
 from score import ScoreThresholds, score_scenario
 
@@ -145,6 +145,28 @@ FULL_GRID_PERCENTILE = {
     # 4 × 3 × 3 × 2 × 3 × 3 = 648 combinations
 }
 
+# ---------------------------------------------------------------------------
+# Rolling linear regression gate parameter grids  (method 14)
+# ---------------------------------------------------------------------------
+
+FULL_GRID_ROLLING_LIN = {
+    "stddev_open":   [50.0, 100.0, 150.0, 300.0],
+    "close_perc":    [0.3, 0.5, 0.7],
+    "history_secs":  [0.5, 1.0, 2.0],
+    "abs_slope_max": [0.00005, 0.0001, 0.0005],
+    "win_secs":      [0.2, 0.5, 1.0],
+    # 4 × 3 × 3 × 3 × 3 = 324 combinations
+}
+
+QUICK_GRID_ROLLING_LIN = {
+    "stddev_open":   [50.0, 150.0],
+    "close_perc":    [0.3, 0.7],
+    "history_secs":  [0.5, 2.0],
+    "abs_slope_max": [0.00005, 0.0005],
+    "win_secs":      [0.2, 1.0],
+    # 2^5 = 32 combinations
+}
+
 QUICK_GRID_PERCENTILE = {
     "open_margin_db":  [8.0, 12.0],
     "close_margin_db": [3.0, 6.0],
@@ -199,6 +221,8 @@ def _evaluate(recipes, audio_cache, cfg, thresholds: ScoreThresholds) -> list:
             predicted, _ = run_gate_bandpass(audio, recipe["sample_rate"], config=cfg)
         elif isinstance(cfg, DualTcGateConfig):
             predicted, _ = run_gate_dual_tc(audio, recipe["sample_rate"], config=cfg)
+        elif isinstance(cfg, RollingLinGateConfig):
+            predicted, _ = run_gate_rolling_lin(audio, recipe["sample_rate"], config=cfg)
         else:
             predicted, _ = run_gate(audio, recipe["sample_rate"], config=cfg)
         sc = score_scenario(
@@ -266,7 +290,7 @@ def main(argv=None):
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--quick", action="store_true",
                         help="Use a small 2-value grid for a fast sanity check")
-    parser.add_argument("--gate", choices=["ema", "percentile", "hpf", "bandpass", "dual_tc"], default="ema",
+    parser.add_argument("--gate", choices=["ema", "percentile", "hpf", "bandpass", "dual_tc", "rolling_lin"], default="ema",
                         help="Gate algorithm to sweep (default: ema)")
     args = parser.parse_args(argv)
 
@@ -281,6 +305,8 @@ def main(argv=None):
         grid = QUICK_GRID_BANDPASS if args.quick else FULL_GRID_BANDPASS
     elif args.gate == "dual_tc":
         grid = QUICK_GRID_DUAL_TC if args.quick else FULL_GRID_DUAL_TC
+    elif args.gate == "rolling_lin":
+        grid = QUICK_GRID_ROLLING_LIN if args.quick else FULL_GRID_ROLLING_LIN
     else:
         grid = QUICK_GRID if args.quick else FULL_GRID
     param_keys = list(grid.keys())
@@ -358,6 +384,17 @@ def main(argv=None):
                 decay_tc=params["decay_tc"],
             )
             extra = f"tc={params['noise_ema_tc_closed']:.1f}s  atk={params['attack_tc']*1000:.0f}ms  dec={params['decay_tc']*1000:.0f}ms"
+        elif args.gate == "rolling_lin":
+            cfg = RollingLinGateConfig(
+                stddev_open=params["stddev_open"],
+                close_perc=params["close_perc"],
+                history_secs=params["history_secs"],
+                abs_slope_max=params["abs_slope_max"],
+                win_secs=params["win_secs"],
+            )
+            extra = (f"std={params['stddev_open']:.0f}  cperc={params['close_perc']:.1f}  "
+                     f"hist={params['history_secs']:.1f}s  slp={params['abs_slope_max']:.5f}  "
+                     f"win={params['win_secs']:.2f}s")
         else:
             cfg = GateConfig(
                 open_margin_db=params["open_margin_db"],
@@ -374,14 +411,22 @@ def main(argv=None):
 
         elapsed = time.monotonic() - t0
         eta = elapsed / (idx + 1) * (total - idx - 1)
-        print(
-            f"[{idx+1:4d}/{total}]  "
-            f"open={params['open_margin_db']:4.1f}  close={params['close_margin_db']:3.1f}  "
-            f"rel={params['release_ms']:5.0f}ms  hold={params['hold_ms']:5.0f}ms  "
-            f"{extra}  "
-            f"pass={agg['pass_rate']:5.1%}  "
-            f"ETA {eta:.0f}s"
-        )
+        if args.gate == "rolling_lin":
+            print(
+                f"[{idx+1:4d}/{total}]  "
+                f"{extra}  "
+                f"pass={agg['pass_rate']:5.1%}  "
+                f"ETA {eta:.0f}s"
+            )
+        else:
+            print(
+                f"[{idx+1:4d}/{total}]  "
+                f"open={params['open_margin_db']:4.1f}  close={params['close_margin_db']:3.1f}  "
+                f"rel={params['release_ms']:5.0f}ms  hold={params['hold_ms']:5.0f}ms  "
+                f"{extra}  "
+                f"pass={agg['pass_rate']:5.1%}  "
+                f"ETA {eta:.0f}s"
+            )
 
     elapsed_total = time.monotonic() - t0
     print(f"\nSweep complete in {elapsed_total:.1f}s")
@@ -398,11 +443,17 @@ def main(argv=None):
         hdr_extra = f"{'EMAcls':>6}  {'LowHz':>6}  {'HighHz':>7}"
     elif args.gate == "dual_tc":
         hdr_extra = f"{'EMAcls':>6}  {'AtkMs':>6}  {'DecMs':>6}"
+    elif args.gate == "rolling_lin":
+        hdr_extra = f"{'Std':>6}  {'CPct':>5}  {'Hist':>5}  {'Slope':>9}  {'Win':>5}"
     else:
         hdr_extra = f"{'EMAcls':>6}"
-    print(f"\n{'Rank':<5} {'PassRate':>8}  {'MissSpch':>9}  {'FalseOpen':>9}  "
-          f"{'OpenMgn':>7}  {'ClsMgn':>6}  {'Rel':>6}  {'Hold':>5}  {hdr_extra}")
-    print("-" * 105)
+    col_width = 115 if args.gate == "rolling_lin" else 105
+    if args.gate == "rolling_lin":
+        print(f"\n{'Rank':<5} {'PassRate':>8}  {'MissSpch':>9}  {'FalseOpen':>9}  {hdr_extra}")
+    else:
+        print(f"\n{'Rank':<5} {'PassRate':>8}  {'MissSpch':>9}  {'FalseOpen':>9}  "
+              f"{'OpenMgn':>7}  {'ClsMgn':>6}  {'Rel':>6}  {'Hold':>5}  {hdr_extra}")
+    print("-" * col_width)
     for rank, r in enumerate(all_results[:10], 1):
         p = r["params"]
         if args.gate == "percentile":
@@ -413,15 +464,25 @@ def main(argv=None):
             row_extra = f"{p['noise_ema_tc_closed']:>6.2f}  {p['low_hz']:>6.0f}  {p['high_hz']:>7.0f}"
         elif args.gate == "dual_tc":
             row_extra = f"{p['noise_ema_tc_closed']:>6.2f}  {p['attack_tc']*1000:>6.0f}  {p['decay_tc']*1000:>6.0f}"
+        elif args.gate == "rolling_lin":
+            row_extra = (f"{p['stddev_open']:>6.0f}  {p['close_perc']:>5.1f}  "
+                         f"{p['history_secs']:>5.1f}  {p['abs_slope_max']:>9.5f}  {p['win_secs']:>5.2f}")
         else:
             row_extra = f"{p.get('noise_ema_tc_closed', 0.3):>6.2f}"
-        print(
-            f"{rank:<5} {r['pass_rate']:>8.1%}  {r['mean_missed_speech']:>9.3f}  "
-            f"{r['mean_false_open']:>9.3f}  "
-            f"{p['open_margin_db']:>7.1f}  {p['close_margin_db']:>6.1f}  "
-            f"{p['release_ms']:>6.0f}  {p['hold_ms']:>5.0f}  "
-            f"{row_extra}"
-        )
+        if args.gate == "rolling_lin":
+            print(
+                f"{rank:<5} {r['pass_rate']:>8.1%}  {r['mean_missed_speech']:>9.3f}  "
+                f"{r['mean_false_open']:>9.3f}  "
+                f"{row_extra}"
+            )
+        else:
+            print(
+                f"{rank:<5} {r['pass_rate']:>8.1%}  {r['mean_missed_speech']:>9.3f}  "
+                f"{r['mean_false_open']:>9.3f}  "
+                f"{p['open_margin_db']:>7.1f}  {p['close_margin_db']:>6.1f}  "
+                f"{p['release_ms']:>6.0f}  {p['hold_ms']:>5.0f}  "
+                f"{row_extra}"
+            )
 
     # --- Write CSV ---
     csv_path = out_dir / "sweep_results.csv"
@@ -455,10 +516,11 @@ def main(argv=None):
 
     # --- Heatmaps ---
     print(f"\nGenerating heatmaps ...")
-    _heatmap(all_results, "open_margin_db", "close_margin_db",
-             out_dir / "heatmap_open_vs_close.png")
-    _heatmap(all_results, "open_margin_db", "release_ms",
-             out_dir / "heatmap_open_vs_release.png")
+    if args.gate != "rolling_lin":
+        _heatmap(all_results, "open_margin_db", "close_margin_db",
+                 out_dir / "heatmap_open_vs_close.png")
+        _heatmap(all_results, "open_margin_db", "release_ms",
+                 out_dir / "heatmap_open_vs_release.png")
     if args.gate == "percentile":
         _heatmap(all_results, "window_sec", "percentile",
                  out_dir / "heatmap_window_vs_percentile.png")
@@ -479,6 +541,13 @@ def main(argv=None):
                  out_dir / "heatmap_attack_vs_decay.png")
         _heatmap(all_results, "noise_ema_tc_closed", "open_margin_db",
                  out_dir / "heatmap_tc_vs_open.png")
+    elif args.gate == "rolling_lin":
+        _heatmap(all_results, "stddev_open", "close_perc",
+                 out_dir / "heatmap_stddev_vs_closeperc.png")
+        _heatmap(all_results, "history_secs", "win_secs",
+                 out_dir / "heatmap_history_vs_win.png")
+        _heatmap(all_results, "abs_slope_max", "stddev_open",
+                 out_dir / "heatmap_slope_vs_stddev.png")
     else:
         _heatmap(all_results, "noise_ema_tc_closed", "open_margin_db",
                  out_dir / "heatmap_tc_vs_open.png")
