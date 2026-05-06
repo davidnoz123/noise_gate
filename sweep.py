@@ -13,6 +13,8 @@ Usage
   python sweep.py --out-dir results/sweep01
   python sweep.py --quick                # tiny 2x2x2 grid for a fast sanity check
   python sweep.py --gate hpf             # high-pass filtered dB gate (method 10)
+  python sweep.py --gate bandpass        # speech-band (300-3400 Hz) gate (method 9)
+  python sweep.py --gate dual_tc         # dual time-constant envelope gate (method 6)
 """
 
 import argparse
@@ -27,7 +29,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from gate import GateConfig, run_gate, PercentileGateConfig, run_gate_percentile, HpfDbGateConfig, run_gate_hpf
+from gate import GateConfig, run_gate, PercentileGateConfig, run_gate_percentile, HpfDbGateConfig, run_gate_hpf, BandpassDbGateConfig, run_gate_bandpass, DualTcGateConfig, run_gate_dual_tc
 from scenario import build_recipes, mix_audio
 from score import ScoreThresholds, score_scenario
 
@@ -75,6 +77,58 @@ QUICK_GRID_HPF = {
     "noise_ema_tc_closed": [0.3, 1.0],
     "cutoff_hz":           [80.0, 200.0],
     # 2^6 = 64 combinations
+}
+
+# ---------------------------------------------------------------------------
+# Bandpass gate parameter grids  (method 9)
+# ---------------------------------------------------------------------------
+
+FULL_GRID_BANDPASS = {
+    "open_margin_db":      [6.0, 8.0, 10.0, 12.0],
+    "close_margin_db":     [2.0, 4.0, 6.0],
+    "release_ms":          [300.0, 500.0, 800.0],
+    "hold_ms":             [100.0, 250.0],
+    "noise_ema_tc_closed": [0.3, 1.0],
+    "low_hz":              [150.0, 300.0],
+    "high_hz":             [3400.0, 4000.0],
+    # 4 × 3 × 3 × 2 × 2 × 2 × 2 = 576 combinations
+}
+
+QUICK_GRID_BANDPASS = {
+    "open_margin_db":      [8.0, 12.0],
+    "close_margin_db":     [3.0, 6.0],
+    "release_ms":          [300.0, 800.0],
+    "hold_ms":             [100.0, 250.0],
+    "noise_ema_tc_closed": [0.3, 1.0],
+    "low_hz":              [150.0, 300.0],
+    "high_hz":             [3400.0, 4000.0],
+    # 2^7 = 128 combinations
+}
+
+# ---------------------------------------------------------------------------
+# Dual-TC gate parameter grids  (method 6)
+# ---------------------------------------------------------------------------
+
+FULL_GRID_DUAL_TC = {
+    "open_margin_db":      [6.0, 8.0, 10.0, 12.0],
+    "close_margin_db":     [2.0, 4.0, 6.0],
+    "release_ms":          [300.0, 500.0, 800.0],
+    "hold_ms":             [100.0, 250.0],
+    "noise_ema_tc_closed": [0.3, 1.0],
+    "attack_tc":           [0.005, 0.020, 0.050],
+    "decay_tc":            [0.15, 0.30, 0.60],
+    # 4 × 3 × 3 × 2 × 2 × 3 × 3 = 1296 combinations
+}
+
+QUICK_GRID_DUAL_TC = {
+    "open_margin_db":      [8.0, 12.0],
+    "close_margin_db":     [3.0, 6.0],
+    "release_ms":          [300.0, 800.0],
+    "hold_ms":             [100.0, 250.0],
+    "noise_ema_tc_closed": [0.3, 1.0],
+    "attack_tc":           [0.010, 0.050],
+    "decay_tc":            [0.15, 0.60],
+    # 2^7 = 128 combinations
 }
 
 # ---------------------------------------------------------------------------
@@ -131,7 +185,8 @@ def _aggregate(scores: list) -> dict:
 def _evaluate(recipes, audio_cache, cfg, thresholds: ScoreThresholds) -> list:
     """Run gate + score for all recipes and return list of ScenarioScore.
 
-    *cfg* may be a GateConfig, PercentileGateConfig, or HpfDbGateConfig.
+    *cfg* may be a GateConfig, PercentileGateConfig, HpfDbGateConfig,
+    BandpassDbGateConfig, or DualTcGateConfig.
     """
     scores = []
     for recipe in recipes:
@@ -140,6 +195,10 @@ def _evaluate(recipes, audio_cache, cfg, thresholds: ScoreThresholds) -> list:
             predicted, _ = run_gate_percentile(audio, recipe["sample_rate"], config=cfg)
         elif isinstance(cfg, HpfDbGateConfig):
             predicted, _ = run_gate_hpf(audio, recipe["sample_rate"], config=cfg)
+        elif isinstance(cfg, BandpassDbGateConfig):
+            predicted, _ = run_gate_bandpass(audio, recipe["sample_rate"], config=cfg)
+        elif isinstance(cfg, DualTcGateConfig):
+            predicted, _ = run_gate_dual_tc(audio, recipe["sample_rate"], config=cfg)
         else:
             predicted, _ = run_gate(audio, recipe["sample_rate"], config=cfg)
         sc = score_scenario(
@@ -207,7 +266,7 @@ def main(argv=None):
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--quick", action="store_true",
                         help="Use a small 2-value grid for a fast sanity check")
-    parser.add_argument("--gate", choices=["ema", "percentile", "hpf"], default="ema",
+    parser.add_argument("--gate", choices=["ema", "percentile", "hpf", "bandpass", "dual_tc"], default="ema",
                         help="Gate algorithm to sweep (default: ema)")
     args = parser.parse_args(argv)
 
@@ -218,6 +277,10 @@ def main(argv=None):
         grid = QUICK_GRID_PERCENTILE if args.quick else FULL_GRID_PERCENTILE
     elif args.gate == "hpf":
         grid = QUICK_GRID_HPF if args.quick else FULL_GRID_HPF
+    elif args.gate == "bandpass":
+        grid = QUICK_GRID_BANDPASS if args.quick else FULL_GRID_BANDPASS
+    elif args.gate == "dual_tc":
+        grid = QUICK_GRID_DUAL_TC if args.quick else FULL_GRID_DUAL_TC
     else:
         grid = QUICK_GRID if args.quick else FULL_GRID
     param_keys = list(grid.keys())
@@ -273,6 +336,28 @@ def main(argv=None):
                 cutoff_hz=params["cutoff_hz"],
             )
             extra = f"tc={params['noise_ema_tc_closed']:.1f}s  hp={params['cutoff_hz']:.0f}Hz"
+        elif args.gate == "bandpass":
+            cfg = BandpassDbGateConfig(
+                open_margin_db=params["open_margin_db"],
+                close_margin_db=params["close_margin_db"],
+                release_ms=params["release_ms"],
+                hold_ms=params["hold_ms"],
+                noise_ema_tc_closed=params["noise_ema_tc_closed"],
+                low_hz=params["low_hz"],
+                high_hz=params["high_hz"],
+            )
+            extra = f"tc={params['noise_ema_tc_closed']:.1f}s  bp={params['low_hz']:.0f}-{params['high_hz']:.0f}Hz"
+        elif args.gate == "dual_tc":
+            cfg = DualTcGateConfig(
+                open_margin_db=params["open_margin_db"],
+                close_margin_db=params["close_margin_db"],
+                release_ms=params["release_ms"],
+                hold_ms=params["hold_ms"],
+                noise_ema_tc_closed=params["noise_ema_tc_closed"],
+                attack_tc=params["attack_tc"],
+                decay_tc=params["decay_tc"],
+            )
+            extra = f"tc={params['noise_ema_tc_closed']:.1f}s  atk={params['attack_tc']*1000:.0f}ms  dec={params['decay_tc']*1000:.0f}ms"
         else:
             cfg = GateConfig(
                 open_margin_db=params["open_margin_db"],
@@ -309,17 +394,25 @@ def main(argv=None):
         hdr_extra = f"{'Window':>7}  {'Pct':>5}"
     elif args.gate == "hpf":
         hdr_extra = f"{'EMAcls':>6}  {'HPFHz':>7}"
+    elif args.gate == "bandpass":
+        hdr_extra = f"{'EMAcls':>6}  {'LowHz':>6}  {'HighHz':>7}"
+    elif args.gate == "dual_tc":
+        hdr_extra = f"{'EMAcls':>6}  {'AtkMs':>6}  {'DecMs':>6}"
     else:
         hdr_extra = f"{'EMAcls':>6}"
     print(f"\n{'Rank':<5} {'PassRate':>8}  {'MissSpch':>9}  {'FalseOpen':>9}  "
           f"{'OpenMgn':>7}  {'ClsMgn':>6}  {'Rel':>6}  {'Hold':>5}  {hdr_extra}")
-    print("-" * 100)
+    print("-" * 105)
     for rank, r in enumerate(all_results[:10], 1):
         p = r["params"]
         if args.gate == "percentile":
             row_extra = f"{p['window_sec']:>7.1f}  {p['percentile']:>5.0f}"
         elif args.gate == "hpf":
             row_extra = f"{p['noise_ema_tc_closed']:>6.2f}  {p['cutoff_hz']:>7.0f}"
+        elif args.gate == "bandpass":
+            row_extra = f"{p['noise_ema_tc_closed']:>6.2f}  {p['low_hz']:>6.0f}  {p['high_hz']:>7.0f}"
+        elif args.gate == "dual_tc":
+            row_extra = f"{p['noise_ema_tc_closed']:>6.2f}  {p['attack_tc']*1000:>6.0f}  {p['decay_tc']*1000:>6.0f}"
         else:
             row_extra = f"{p.get('noise_ema_tc_closed', 0.3):>6.2f}"
         print(
@@ -374,6 +467,16 @@ def main(argv=None):
     elif args.gate == "hpf":
         _heatmap(all_results, "cutoff_hz", "open_margin_db",
                  out_dir / "heatmap_cutoff_vs_open.png")
+        _heatmap(all_results, "noise_ema_tc_closed", "open_margin_db",
+                 out_dir / "heatmap_tc_vs_open.png")
+    elif args.gate == "bandpass":
+        _heatmap(all_results, "low_hz", "high_hz",
+                 out_dir / "heatmap_low_vs_high.png")
+        _heatmap(all_results, "noise_ema_tc_closed", "open_margin_db",
+                 out_dir / "heatmap_tc_vs_open.png")
+    elif args.gate == "dual_tc":
+        _heatmap(all_results, "attack_tc", "decay_tc",
+                 out_dir / "heatmap_attack_vs_decay.png")
         _heatmap(all_results, "noise_ema_tc_closed", "open_margin_db",
                  out_dir / "heatmap_tc_vs_open.png")
     else:
