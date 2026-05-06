@@ -1,0 +1,28 @@
+{
+  "created_at": "2026-05-06T18:09:47Z",
+  "title": "Noise Gate Test Harness Markdown Pack",
+  "file_count": 16,
+  "files": [
+    "00_README.md",
+    "01_PROJECT_GOALS_AND_NON_GOALS.md",
+    "02_CONCEPTUAL_COMPONENTS.md",
+    "03_DATASET_AND_SAMPLE_ACQUISITION.md",
+    "04_LISTING_CACHE_AND_HASH_SELECTION.md",
+    "05_SCENARIO_RECIPES_AND_ON_THE_FLY_AUDIO.md",
+    "06_GATE_METHODS_TO_TRY.md",
+    "07_GATE_INTERFACE_AND_DEBUG_TRACES.md",
+    "08_SCORING_AND_METRICS.md",
+    "09_REPORTING_AND_FAILURE_ANALYSIS.md",
+    "10_FIRST_MILESTONE.md",
+    "11_CLAUDE_PROMPT_INITIAL_POC.md",
+    "12_CLAUDE_PROMPT_DOWNLOAD_AUTOMATION.md",
+    "13_CLAUDE_PROMPT_GATE_BAKEOFF.md",
+    "14_OPEN_DESIGN_DECISIONS.md",
+    "15_TERMS_AND_DEFINITIONS.md"
+  ],
+  "notes": [
+    "Architecture/workflow focused; intentionally avoids prescribing final project folder layout.",
+    "Generated WAVs are not stored by default; scenario recipes are durable artifacts.",
+    "Includes Claude prompts for initial POC, download automation, and gate bake-off."
+  ]
+}
