@@ -26,7 +26,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from gate import GateConfig, run_gate
+from gate import GateConfig, run_gate, PercentileGateConfig, run_gate_percentile
 from scenario import build_recipes, mix_audio
 from score import ScoreThresholds, score_scenario
 
@@ -50,6 +50,30 @@ QUICK_GRID = {
     "release_ms":          [300.0, 600.0],
     "hold_ms":             [150.0, 300.0],
     "noise_ema_tc_closed": [0.3, 0.8],
+}
+
+# ---------------------------------------------------------------------------
+# Percentile gate parameter grids
+# ---------------------------------------------------------------------------
+
+FULL_GRID_PERCENTILE = {
+    "open_margin_db":  [6.0, 8.0, 10.0, 12.0],
+    "close_margin_db": [2.0, 4.0, 6.0],
+    "release_ms":      [300.0, 500.0, 800.0],
+    "hold_ms":         [100.0, 250.0],
+    "window_sec":      [1.0, 2.0, 4.0],
+    "percentile":      [15.0, 25.0, 35.0],
+    # 4 × 3 × 3 × 2 × 3 × 3 = 648 combinations
+}
+
+QUICK_GRID_PERCENTILE = {
+    "open_margin_db":  [8.0, 12.0],
+    "close_margin_db": [3.0, 6.0],
+    "release_ms":      [300.0, 800.0],
+    "hold_ms":         [100.0, 250.0],
+    "window_sec":      [2.0, 4.0],
+    "percentile":      [20.0, 30.0],
+    # 2^6 = 64 combinations
 }
 
 
@@ -79,12 +103,19 @@ def _aggregate(scores: list) -> dict:
 # Single grid point evaluation
 # ---------------------------------------------------------------------------
 
-def _evaluate(recipes, audio_cache, cfg: GateConfig, thresholds: ScoreThresholds) -> list:
-    """Run gate + score for all recipes and return list of ScenarioScore."""
+def _evaluate(recipes, audio_cache, cfg, thresholds: ScoreThresholds) -> list:
+    """Run gate + score for all recipes and return list of ScenarioScore.
+
+    *cfg* may be a GateConfig (EMA gate) or PercentileGateConfig.
+    """
+    use_percentile = isinstance(cfg, PercentileGateConfig)
     scores = []
     for recipe in recipes:
         audio = audio_cache[recipe["scenario_id"]]
-        predicted, _ = run_gate(audio, recipe["sample_rate"], config=cfg)
+        if use_percentile:
+            predicted, _ = run_gate_percentile(audio, recipe["sample_rate"], config=cfg)
+        else:
+            predicted, _ = run_gate(audio, recipe["sample_rate"], config=cfg)
         sc = score_scenario(
             recipe["scenario_id"],
             recipe["truth_segments"],
@@ -150,12 +181,17 @@ def main(argv=None):
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--quick", action="store_true",
                         help="Use a small 2-value grid for a fast sanity check")
+    parser.add_argument("--gate", choices=["ema", "percentile"], default="ema",
+                        help="Gate algorithm to sweep (default: ema)")
     args = parser.parse_args(argv)
 
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    grid = QUICK_GRID if args.quick else FULL_GRID
+    if args.gate == "percentile":
+        grid = QUICK_GRID_PERCENTILE if args.quick else FULL_GRID_PERCENTILE
+    else:
+        grid = QUICK_GRID if args.quick else FULL_GRID
     param_keys = list(grid.keys())
     combinations = list(itertools.product(*[grid[k] for k in param_keys]))
     total = len(combinations)
@@ -189,13 +225,25 @@ def main(argv=None):
 
     for idx, combo in enumerate(combinations):
         params = dict(zip(param_keys, combo))
-        cfg = GateConfig(
-            open_margin_db=params["open_margin_db"],
-            close_margin_db=params["close_margin_db"],
-            release_ms=params["release_ms"],
-            hold_ms=params["hold_ms"],
-            noise_ema_tc_closed=params.get("noise_ema_tc_closed", 0.3),
-        )
+        if args.gate == "percentile":
+            cfg = PercentileGateConfig(
+                open_margin_db=params["open_margin_db"],
+                close_margin_db=params["close_margin_db"],
+                release_ms=params["release_ms"],
+                hold_ms=params["hold_ms"],
+                window_sec=params["window_sec"],
+                percentile=params["percentile"],
+            )
+            extra = f"win={params['window_sec']:.1f}s  pct={params['percentile']:.0f}"
+        else:
+            cfg = GateConfig(
+                open_margin_db=params["open_margin_db"],
+                close_margin_db=params["close_margin_db"],
+                release_ms=params["release_ms"],
+                hold_ms=params["hold_ms"],
+                noise_ema_tc_closed=params.get("noise_ema_tc_closed", 0.3),
+            )
+            extra = f"tc={params.get('noise_ema_tc_closed', 0.3):.1f}s"
         scores = _evaluate(recipes, audio_cache, cfg, thresholds)
         agg = _aggregate(scores)
         row = {"params": params, **agg}
@@ -207,7 +255,7 @@ def main(argv=None):
             f"[{idx+1:4d}/{total}]  "
             f"open={params['open_margin_db']:4.1f}  close={params['close_margin_db']:3.1f}  "
             f"rel={params['release_ms']:5.0f}ms  hold={params['hold_ms']:5.0f}ms  "
-            f"tc={params.get('noise_ema_tc_closed',0.3):.1f}s  "
+            f"{extra}  "
             f"pass={agg['pass_rate']:5.1%}  "
             f"ETA {eta:.0f}s"
         )
@@ -219,17 +267,25 @@ def main(argv=None):
     all_results.sort(key=lambda r: (-r["pass_rate"], r["mean_missed_speech"]))
 
     # --- Top 10 ---
+    if args.gate == "percentile":
+        hdr_extra = f"{'Window':>7}  {'Pct':>5}"
+    else:
+        hdr_extra = f"{'EMAcls':>6}"
     print(f"\n{'Rank':<5} {'PassRate':>8}  {'MissSpch':>9}  {'FalseOpen':>9}  "
-          f"{'OpenMgn':>7}  {'ClsMgn':>6}  {'Rel':>6}  {'Hold':>5}  {'EMAcls':>6}")
-    print("-" * 88)
+          f"{'OpenMgn':>7}  {'ClsMgn':>6}  {'Rel':>6}  {'Hold':>5}  {hdr_extra}")
+    print("-" * 95)
     for rank, r in enumerate(all_results[:10], 1):
         p = r["params"]
+        if args.gate == "percentile":
+            row_extra = f"{p['window_sec']:>7.1f}  {p['percentile']:>5.0f}"
+        else:
+            row_extra = f"{p.get('noise_ema_tc_closed', 0.3):>6.2f}"
         print(
             f"{rank:<5} {r['pass_rate']:>8.1%}  {r['mean_missed_speech']:>9.3f}  "
             f"{r['mean_false_open']:>9.3f}  "
             f"{p['open_margin_db']:>7.1f}  {p['close_margin_db']:>6.1f}  "
             f"{p['release_ms']:>6.0f}  {p['hold_ms']:>5.0f}  "
-            f"{p.get('noise_ema_tc_closed',0.3):>6.2f}"
+            f"{row_extra}"
         )
 
     # --- Write CSV ---
@@ -268,8 +324,14 @@ def main(argv=None):
              out_dir / "heatmap_open_vs_close.png")
     _heatmap(all_results, "open_margin_db", "release_ms",
              out_dir / "heatmap_open_vs_release.png")
-    _heatmap(all_results, "noise_ema_tc_closed", "open_margin_db",
-             out_dir / "heatmap_tc_vs_open.png")
+    if args.gate == "percentile":
+        _heatmap(all_results, "window_sec", "percentile",
+                 out_dir / "heatmap_window_vs_percentile.png")
+        _heatmap(all_results, "open_margin_db", "window_sec",
+                 out_dir / "heatmap_open_vs_window.png")
+    else:
+        _heatmap(all_results, "noise_ema_tc_closed", "open_margin_db",
+                 out_dir / "heatmap_tc_vs_open.png")
 
     print(f"\nResults CSV  : {csv_path}")
     print(f"Results JSON : {json_path}")
