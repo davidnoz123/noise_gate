@@ -1,0 +1,16 @@
+scenario_id,passed,missed_speech_sec,false_open_sec,max_start_delay_ms,max_early_close_ms,max_end_overhang_ms,fragmentation_count,fatal_reasons
+speech_only_000042_0000,True,0.0,0.305,0.0,0.0,286.4,0,
+speech_const_noise_000042_0001,False,0.38,0.0,45.3,2654.7,0.0,1,EARLY_CLOSE [0.67-7.37] early_by=2655ms; MISSED_SPEECH 0.380s
+speech_const_noise_000042_0002,False,4.4666,0.2666,4633.4,2766.6,0.0,4,FRAGMENTATION [0.31-9.31] (5 segments); LATE_OPEN [0.31-9.31] delay=4633ms; EARLY_CLOSE [0.31-9.31] early_by=2767ms; MISSED_SPEECH 4.467s
+quiet_speech_noise_000042_0003,False,3.2,0.0,0.0,0.0,0.0,0,MISSED_UTTERANCE [1.04-4.24]
+speech_rising_noise_000042_0004,False,0.0,3.62,0.0,0.0,153.3,0,EXCESSIVE_FALSE_OPEN 3.62s
+speech_sine_noise_000042_0005,True,0.049,0.134,49.0,0.0,134.0,0,
+short_cmd_noise_000042_0006,False,4.04,0.0,4283.0,117.0,0.0,1,LATE_OPEN [0.66-7.36] delay=4283ms; MISSED_SPEECH 4.040s
+speech_rand_noise_000042_0007,False,1.4433,0.1433,0.0,4523.3,0.0,1,EARLY_CLOSE [0.30-9.30] early_by=4523ms; MISSED_SPEECH 1.443s
+fading_speaker_000042_0008,False,0.5366,0.0366,0.0,536.6,0.0,0,EARLY_CLOSE [2.78-5.98] early_by=537ms; MISSED_SPEECH 0.537s
+approaching_speaker_000042_0009,True,0.0,2.46,0.0,0.0,150.3,0,
+natural_level_variation_000042_0010,False,0.0641,0.0091,64.1,0.0,9.1,0,MISSED_SPEECH 0.064s
+fading_speaker_rand_noise_000042_0011,False,2.74,0.0,50.1,2689.9,0.0,0,EARLY_CLOSE [0.79-7.49] early_by=2690ms; MISSED_SPEECH 2.740s
+speech_burst_noise_000042_0012,False,1.305,0.005,0.0,1305.0,0.0,0,EARLY_CLOSE [0.30-9.30] early_by=1305ms; MISSED_SPEECH 1.305s
+quiet_speech_burst_000042_0013,False,0.62,0.0,69.9,550.1,0.0,0,EARLY_CLOSE [2.51-5.71] early_by=550ms; MISSED_SPEECH 0.620s
+fade_speech_rise_noise_000042_0014,True,0.0,2.62,0.0,0.0,124.6,0,

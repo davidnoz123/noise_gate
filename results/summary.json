@@ -1,0 +1,446 @@
+{
+  "seed": 42,
+  "count": 15,
+  "passed": 4,
+  "failed": 11,
+  "pass_rate": 0.2667,
+  "gate_config": {
+    "open_margin_db": 10.0,
+    "close_margin_db": 4.0,
+    "release_ms": 300.0,
+    "hold_ms": 150.0
+  },
+  "scenarios": [
+    {
+      "scenario_id": "speech_only_000042_0000",
+      "passed": true,
+      "fatal_reasons": [],
+      "speech_total_sec": 2.175,
+      "missed_speech_sec": 0.0,
+      "false_open_sec": 0.305,
+      "max_start_delay_ms": 0.0,
+      "max_early_close_ms": 0.0,
+      "max_end_overhang_ms": 286.4,
+      "fragmentation_count": 0,
+      "predicted_segments": [
+        [
+          0.84,
+          3.32
+        ]
+      ],
+      "truth_segments": [
+        [
+          0.8586,
+          3.0336
+        ]
+      ]
+    },
+    {
+      "scenario_id": "speech_const_noise_000042_0001",
+      "passed": false,
+      "fatal_reasons": [
+        "EARLY_CLOSE [0.67-7.37] early_by=2655ms",
+        "MISSED_SPEECH 0.380s"
+      ],
+      "speech_total_sec": 6.7,
+      "missed_speech_sec": 0.38,
+      "false_open_sec": 0.0,
+      "max_start_delay_ms": 45.3,
+      "max_early_close_ms": 2654.7,
+      "max_end_overhang_ms": 0.0,
+      "fragmentation_count": 1,
+      "predicted_segments": [
+        [
+          0.72,
+          4.72
+        ],
+        [
+          4.96,
+          7.28
+        ]
+      ],
+      "truth_segments": [
+        [
+          0.6747,
+          7.3747
+        ]
+      ]
+    },
+    {
+      "scenario_id": "speech_const_noise_000042_0002",
+      "passed": false,
+      "fatal_reasons": [
+        "FRAGMENTATION [0.31-9.31] (5 segments)",
+        "LATE_OPEN [0.31-9.31] delay=4633ms",
+        "EARLY_CLOSE [0.31-9.31] early_by=2767ms",
+        "MISSED_SPEECH 4.467s"
+      ],
+      "speech_total_sec": 9.0,
+      "missed_speech_sec": 4.4666,
+      "false_open_sec": 0.2666,
+      "max_start_delay_ms": 4633.4,
+      "max_early_close_ms": 2766.6,
+      "max_end_overhang_ms": 0.0,
+      "fragmentation_count": 4,
+      "predicted_segments": [
+        [
+          0.04,
+          0.96
+        ],
+        [
+          1.96,
+          2.68
+        ],
+        [
+          3.86,
+          4.6
+        ],
+        [
+          4.94,
+          6.54
+        ],
+        [
+          7.18,
+          8.0
+        ]
+      ],
+      "truth_segments": [
+        [
+          0.3066,
+          9.3066
+        ]
+      ]
+    },
+    {
+      "scenario_id": "quiet_speech_noise_000042_0003",
+      "passed": false,
+      "fatal_reasons": [
+        "MISSED_UTTERANCE [1.04-4.24]"
+      ],
+      "speech_total_sec": 3.2,
+      "missed_speech_sec": 3.2,
+      "false_open_sec": 0.0,
+      "max_start_delay_ms": 0.0,
+      "max_early_close_ms": 0.0,
+      "max_end_overhang_ms": 0.0,
+      "fragmentation_count": 0,
+      "predicted_segments": [],
+      "truth_segments": [
+        [
+          1.043,
+          4.243
+        ]
+      ]
+    },
+    {
+      "scenario_id": "speech_rising_noise_000042_0004",
+      "passed": false,
+      "fatal_reasons": [
+        "EXCESSIVE_FALSE_OPEN 3.62s"
+      ],
+      "speech_total_sec": 2.4,
+      "missed_speech_sec": 0.0,
+      "false_open_sec": 3.62,
+      "max_start_delay_ms": 0.0,
+      "max_early_close_ms": 0.0,
+      "max_end_overhang_ms": 153.3,
+      "fragmentation_count": 0,
+      "predicted_segments": [
+        [
+          1.12,
+          3.24
+        ],
+        [
+          3.36,
+          7.26
+        ]
+      ],
+      "truth_segments": [
+        [
+          4.7067,
+          7.1067
+        ]
+      ]
+    },
+    {
+      "scenario_id": "speech_sine_noise_000042_0005",
+      "passed": true,
+      "fatal_reasons": [],
+      "speech_total_sec": 2.175,
+      "missed_speech_sec": 0.049,
+      "false_open_sec": 0.134,
+      "max_start_delay_ms": 49.0,
+      "max_early_close_ms": 0.0,
+      "max_end_overhang_ms": 134.0,
+      "fragmentation_count": 0,
+      "predicted_segments": [
+        [
+          4.08,
+          6.34
+        ]
+      ],
+      "truth_segments": [
+        [
+          4.031,
+          6.206
+        ]
+      ]
+    },
+    {
+      "scenario_id": "short_cmd_noise_000042_0006",
+      "passed": false,
+      "fatal_reasons": [
+        "LATE_OPEN [0.66-7.36] delay=4283ms",
+        "MISSED_SPEECH 4.040s"
+      ],
+      "speech_total_sec": 6.7,
+      "missed_speech_sec": 4.04,
+      "false_open_sec": 0.0,
+      "max_start_delay_ms": 4283.0,
+      "max_early_close_ms": 117.0,
+      "max_end_overhang_ms": 0.0,
+      "fragmentation_count": 1,
+      "predicted_segments": [
+        [
+          1.38,
+          1.74
+        ],
+        [
+          4.94,
+          7.24
+        ]
+      ],
+      "truth_segments": [
+        [
+          0.657,
+          7.357
+        ]
+      ]
+    },
+    {
+      "scenario_id": "speech_rand_noise_000042_0007",
+      "passed": false,
+      "fatal_reasons": [
+        "EARLY_CLOSE [0.30-9.30] early_by=4523ms",
+        "MISSED_SPEECH 1.443s"
+      ],
+      "speech_total_sec": 9.0,
+      "missed_speech_sec": 1.4433,
+      "false_open_sec": 0.1433,
+      "max_start_delay_ms": 0.0,
+      "max_early_close_ms": 4523.3,
+      "max_end_overhang_ms": 0.0,
+      "fragmentation_count": 1,
+      "predicted_segments": [
+        [
+          0.16,
+          4.78
+        ],
+        [
+          4.92,
+          8.0
+        ]
+      ],
+      "truth_segments": [
+        [
+          0.3033,
+          9.3033
+        ]
+      ]
+    },
+    {
+      "scenario_id": "fading_speaker_000042_0008",
+      "passed": false,
+      "fatal_reasons": [
+        "EARLY_CLOSE [2.78-5.98] early_by=537ms",
+        "MISSED_SPEECH 0.537s"
+      ],
+      "speech_total_sec": 3.2,
+      "missed_speech_sec": 0.5366,
+      "false_open_sec": 0.0366,
+      "max_start_delay_ms": 0.0,
+      "max_early_close_ms": 536.6,
+      "max_end_overhang_ms": 0.0,
+      "fragmentation_count": 0,
+      "predicted_segments": [
+        [
+          2.74,
+          5.44
+        ]
+      ],
+      "truth_segments": [
+        [
+          2.7766,
+          5.9766
+        ]
+      ]
+    },
+    {
+      "scenario_id": "approaching_speaker_000042_0009",
+      "passed": true,
+      "fatal_reasons": [],
+      "speech_total_sec": 2.6,
+      "missed_speech_sec": 0.0,
+      "false_open_sec": 2.46,
+      "max_start_delay_ms": 0.0,
+      "max_early_close_ms": 0.0,
+      "max_end_overhang_ms": 150.3,
+      "fragmentation_count": 0,
+      "predicted_segments": [
+        [
+          1.36,
+          6.12
+        ],
+        [
+          7.7,
+          8.0
+        ]
+      ],
+      "truth_segments": [
+        [
+          3.3697,
+          5.9697
+        ]
+      ]
+    },
+    {
+      "scenario_id": "natural_level_variation_000042_0010",
+      "passed": false,
+      "fatal_reasons": [
+        "MISSED_SPEECH 0.064s"
+      ],
+      "speech_total_sec": 2.175,
+      "missed_speech_sec": 0.0641,
+      "false_open_sec": 0.0091,
+      "max_start_delay_ms": 64.1,
+      "max_early_close_ms": 0.0,
+      "max_end_overhang_ms": 9.1,
+      "fragmentation_count": 0,
+      "predicted_segments": [
+        [
+          3.5,
+          5.62
+        ]
+      ],
+      "truth_segments": [
+        [
+          3.4359,
+          5.6109
+        ]
+      ]
+    },
+    {
+      "scenario_id": "fading_speaker_rand_noise_000042_0011",
+      "passed": false,
+      "fatal_reasons": [
+        "EARLY_CLOSE [0.79-7.49] early_by=2690ms",
+        "MISSED_SPEECH 2.740s"
+      ],
+      "speech_total_sec": 6.7,
+      "missed_speech_sec": 2.74,
+      "false_open_sec": 0.0,
+      "max_start_delay_ms": 50.1,
+      "max_early_close_ms": 2689.9,
+      "max_end_overhang_ms": 0.0,
+      "fragmentation_count": 0,
+      "predicted_segments": [
+        [
+          0.84,
+          4.8
+        ]
+      ],
+      "truth_segments": [
+        [
+          0.7899,
+          7.4899
+        ]
+      ]
+    },
+    {
+      "scenario_id": "speech_burst_noise_000042_0012",
+      "passed": false,
+      "fatal_reasons": [
+        "EARLY_CLOSE [0.30-9.30] early_by=1305ms",
+        "MISSED_SPEECH 1.305s"
+      ],
+      "speech_total_sec": 9.0,
+      "missed_speech_sec": 1.305,
+      "false_open_sec": 0.005,
+      "max_start_delay_ms": 0.0,
+      "max_early_close_ms": 1305.0,
+      "max_end_overhang_ms": 0.0,
+      "fragmentation_count": 0,
+      "predicted_segments": [
+        [
+          0.3,
+          8.0
+        ]
+      ],
+      "truth_segments": [
+        [
+          0.305,
+          9.305
+        ]
+      ]
+    },
+    {
+      "scenario_id": "quiet_speech_burst_000042_0013",
+      "passed": false,
+      "fatal_reasons": [
+        "EARLY_CLOSE [2.51-5.71] early_by=550ms",
+        "MISSED_SPEECH 0.620s"
+      ],
+      "speech_total_sec": 3.2,
+      "missed_speech_sec": 0.62,
+      "false_open_sec": 0.0,
+      "max_start_delay_ms": 69.9,
+      "max_early_close_ms": 550.1,
+      "max_end_overhang_ms": 0.0,
+      "fragmentation_count": 0,
+      "predicted_segments": [
+        [
+          2.58,
+          5.16
+        ]
+      ],
+      "truth_segments": [
+        [
+          2.5101,
+          5.7101
+        ]
+      ]
+    },
+    {
+      "scenario_id": "fade_speech_rise_noise_000042_0014",
+      "passed": true,
+      "fatal_reasons": [],
+      "speech_total_sec": 2.4,
+      "missed_speech_sec": 0.0,
+      "false_open_sec": 2.62,
+      "max_start_delay_ms": 0.0,
+      "max_early_close_ms": 0.0,
+      "max_end_overhang_ms": 124.6,
+      "fragmentation_count": 0,
+      "predicted_segments": [
+        [
+          1.24,
+          4.06
+        ],
+        [
+          4.66,
+          5.6
+        ],
+        [
+          5.72,
+          6.98
+        ]
+      ],
+      "truth_segments": [
+        [
+          1.5354,
+          3.9354
+        ]
+      ]
+    }
+  ]
+}
