@@ -1,1 +1,2 @@
 soundfile
+silero-vad
