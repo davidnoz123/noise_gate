@@ -61,7 +61,7 @@ except ImportError:
 # Source URLs and licence metadata
 # ---------------------------------------------------------------------------
 
-LIBRISPEECH_URL = "https://us.openslr.org/resources/12/test-clean.tar.gz"
+LIBRISPEECH_URL = "https://www.openslr.org/resources/12/test-clean.tar.gz"
 LIBRISPEECH_LICENSE = "CC BY 4.0"
 LIBRISPEECH_LICENSE_URL = "https://creativecommons.org/licenses/by/4.0/"
 
